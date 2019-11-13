@@ -1,0 +1,8 @@
+# HINT: Enviroments vars in react must be named: REACT_APP_FOO
+# HINT: This file must be in root path of project
+
+# VARS FOR BACKEND. Destination: localhost
+REACT_APP_PROTOCOL=http
+REACT_APP_HOST=localhost
+REACT_APP_PORT=4000
+REACT_APP_GRAPHQL=/graphql
