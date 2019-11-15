@@ -1,18 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { RootSession } from './App';
-import * as serviceWorker from './serviceWorker';
-
+import React from 'react'
+import ReactDOM from 'react-dom'
 /* Import apollo client */
 import apolloClient from './apollo/config';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo'
+
+import * as serviceWorker from './serviceWorker';
+
+import Context from './Context'
+
+import { App } from './App'
 
 ReactDOM.render(
-	<ApolloProvider client={apolloClient}>
-		<RootSession />
-	</ApolloProvider>
-	, document.getElementById('root')
-);
+	<Context.Provider>
+		<ApolloProvider client={apolloClient}>
+			<App />
+		</ApolloProvider>
+	</Context.Provider>, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

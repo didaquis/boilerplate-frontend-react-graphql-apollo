@@ -1,4 +1,4 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import ApolloClient from 'apollo-boost';
 import { recoverSession } from '../utils/utils';
 
 /* Configuration imported from '.env' file */
@@ -11,23 +11,22 @@ const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${back
 
 const apolloClient = new ApolloClient({
 	uri: backendAddress,
-	fetchOptions: {
-		credentials: 'include'
-	},
 	request: operation => {
 		const token = recoverSession('token');
+		const authorization = token ? `Bearer ${token}` : '';
 		operation.setContext({
 			headers: {
-				authorization: token
+				authorization
 			}
-		});
+		})
 	},
-	cache: new InMemoryCache({
-		addTypename: false
-	}),
 	onError: ({ networkError, graphQLErrors }) => {
 		console.error('graphQLErrors', graphQLErrors);
 		console.error('networkError', networkError);
+		if (networkError && networkError.response === 'invalid_token') {
+			window.sessionStorage.removeItem('token')
+			window.location.href = '/'
+		}
 	}
 });
 
