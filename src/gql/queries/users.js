@@ -8,6 +8,7 @@ query listAllUsers{
 		isActive
 		registrationDate
 		lastLogin
+		uuid
 	}
 }
 `;

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import { PageTitle } from '../components/PageTitle'
 
+import { UsersWithQuery } from '../containers/GetListOfUsers'
+
 const UserAdministration = () => {
 	return (
-		<PageTitle text='User administration panel' />
+		<Fragment>
+			<PageTitle text='User administration panel' />
+			<UsersWithQuery />
+		</Fragment>
 	)
 }
 

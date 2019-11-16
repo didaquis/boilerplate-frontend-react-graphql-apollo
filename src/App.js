@@ -9,6 +9,7 @@ import { User } from './pages/User'
 import { NotFound } from './pages/NotFound'
 
 import { NavBar } from './components/NavBar'
+import { Spinner } from './components/Spinner'
 
 const Home = React.lazy(() => import('./pages/Home'))
 const UserAdministration = React.lazy(() => import('./pages/UserAdministration'))
@@ -23,7 +24,7 @@ export const App = () => {
 // didac TO DO: evitar que aquellos usuarios que no sean administradores pueda acceder a '/user-administration'
 	return (
 		<StrictMode>
-			<Suspense fallback={<div />}>
+			<Suspense fallback={<Spinner />}>
 				<NavBar />
 				<Router>
 					<NotFound default />
