@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './Spinner.css';
+import './styles.css';
 
 
-const Spinner = () => {
+export const Spinner = () => {
 	return(
 		<div className="spinner">
 			<div className="bounce1"></div>
@@ -12,5 +12,3 @@ const Spinner = () => {
 		</div>
 	);
 }
-
-export default Spinner;

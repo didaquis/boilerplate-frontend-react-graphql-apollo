@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 
-const UserAdministration = (props) => {
+import { PageTitle } from '../PageTitle'
+
+export const UserAdministration = (props) => {
 
 		return(
 			<Fragment>
-				<h2 className="text-center">Panel administración usuarios</h2>
+				<PageTitle text='User administration panel' />
 			</Fragment>
 		);
 }
-
-export default UserAdministration;
