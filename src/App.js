@@ -11,6 +11,7 @@ import { NotFound } from './pages/NotFound'
 import { NavBar } from './components/NavBar'
 
 const Home = React.lazy(() => import('./pages/Home'))
+const UserAdministration = React.lazy(() => import('./pages/UserAdministration'))
 
 
 export const App = () => {
@@ -18,6 +19,8 @@ export const App = () => {
 	//const { userData } = useContext(AuthContext)
 	//console.log(userData)
 
+
+// didac TO DO: evitar que aquellos usuarios que no sean administradores pueda acceder a '/user-administration'
 	return (
 		<StrictMode>
 			<Suspense fallback={<div />}>
@@ -26,9 +29,11 @@ export const App = () => {
 					<NotFound default />
 					<Home path='/' />
 					{ !isAuth && <NotRegisteredUser path='/login' /> }
+					{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
 					{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
 
 					{ isAuth && <Redirect from='/login' to='/' noThrow /> }
+					<UserAdministration path='/user-administration' />
 					<User path='/user' />
 				</Router>
 			</Suspense>
