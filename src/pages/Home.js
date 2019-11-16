@@ -4,10 +4,9 @@ import { Jumbotron } from '../components/Jumbotron'
 
 const HomePage = () => {
 	return (
-		<Jumbotron />
+		<Jumbotron title='Home' subtitle='Welcome! This is a boilerplate frontend' />
 	)
 }
-
 
 HomePage.displayName = 'Home'
 

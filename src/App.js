@@ -6,9 +6,10 @@ import { AuthContext } from './AuthContext'
 
 import { NotRegisteredUser } from './pages/NotRegisteredUser'
 import { User } from './pages/User'
-import { NotFound } from './pages/NotFound'
+import { Page404 } from './pages/Page404'
 
 import { NavBar } from './components/NavBar'
+import { Footer } from './components/Footer'
 import { Spinner } from './components/Spinner'
 
 const Home = React.lazy(() => import('./pages/Home'))
@@ -24,20 +25,25 @@ export const App = () => {
 // didac TO DO: evitar que aquellos usuarios que no sean administradores pueda acceder a '/user-administration'
 	return (
 		<StrictMode>
-			<Suspense fallback={<Spinner />}>
-				<NavBar />
-				<Router>
-					<NotFound default />
-					<Home path='/' />
-					{ !isAuth && <NotRegisteredUser path='/login' /> }
-					{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
-					{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
+			<div className="container-fluid bg-dark">
+				<div className="container">
+					<Suspense fallback={<Spinner />}>
+						<NavBar />
+						<Router>
+							<Page404 default />
+							<Home path='/' />
+							{ !isAuth && <NotRegisteredUser path='/login' /> }
+							{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
+							{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
 
-					{ isAuth && <Redirect from='/login' to='/' noThrow /> }
-					<UserAdministration path='/user-administration' />
-					<User path='/user' />
-				</Router>
-			</Suspense>
+							{ isAuth && <Redirect from='/login' to='/' noThrow /> }
+							<UserAdministration path='/user-administration' />
+							<User path='/user' />
+						</Router>
+						<Footer />
+					</Suspense>
+				</div>
+			</div>
 		</StrictMode>
 	)
 }

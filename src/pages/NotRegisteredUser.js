@@ -5,7 +5,8 @@ import { AuthContext } from '../AuthContext'
 import { RegisterMutation } from '../containers/RegisterMutation'
 import { LoginMutation } from '../containers/LoginMutation'
 
-import { UserForm } from '../components/UserForm'
+import { LoginForm } from '../components/LoginForm'
+import { RegisterForm } from '../components/RegisterForm'
 
 
 export const NotRegisteredUser = () => {
@@ -29,7 +30,7 @@ export const NotRegisteredUser = () => {
 
 						const errorMsg = error && 'Data provided is not valid'
 
-						return <UserForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Sign up' />
+						return <RegisterForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Sign up' />
 					}
 				}
 			</RegisterMutation>
@@ -49,7 +50,7 @@ export const NotRegisteredUser = () => {
 
 						const errorMsg = error && 'Invalid credentials'
 
-						return <UserForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Log in' />
+						return <LoginForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Log in' />
 					}
 				}
 			</LoginMutation>

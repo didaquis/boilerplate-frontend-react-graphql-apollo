@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import { ErrorAlert } from '../components/ErrorAlert'
 
-export const NotFound = () => {
+export const Page404 = () => {
 	return (
 		<Fragment>
 			<ErrorAlert errorMessage={'404'} />

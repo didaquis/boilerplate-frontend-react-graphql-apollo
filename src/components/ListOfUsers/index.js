@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export const ListOfUsers = ( { users = [] } ) => {
 	return (
 		<section>
-			<table className="table">
+			<table className="table text-light">
   				<thead>
   					<tr>
 						<th scope="col">Email</th>
