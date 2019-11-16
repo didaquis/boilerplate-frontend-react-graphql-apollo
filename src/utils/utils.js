@@ -5,10 +5,10 @@ const regexPassword = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!*^?+
 /**
  * Save data in Session Storage
  * @param {string} name - key for data
- * @param {string|number|Array} data - data for storage
+ * @param {string} data - data to store
  */
 function saveSession(name, data) {
-	sessionStorage.setItem(name, JSON.stringify(data));
+	sessionStorage.setItem(name, data);
 }
 
 /**
@@ -16,7 +16,7 @@ function saveSession(name, data) {
  * @param {string} name - key for data to recover
  */
 function recoverSession(name) {
-	return JSON.parse(sessionStorage.getItem(name));
+	return sessionStorage.getItem(name);
 }
 
 /**

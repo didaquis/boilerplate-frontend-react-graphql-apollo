@@ -18,8 +18,8 @@ export const UserForm = ({ error, disabled, onSubmit, title }) => {
 		<Fragment>
 			<form disabled={disabled} onSubmit={handleSubmit}>
 				<PageTitle text={title} />
-				<input disabled={disabled} placeholder='Email' {...email} required autoFocus />
-				<input disabled={disabled} placeholder='Contraseña' type='password' {...password} required />
+				<input disabled={disabled} placeholder='email' {...email} required autoFocus />
+				<input disabled={disabled} placeholder='password' type='password' {...password} required />
 				<SubmitButton disabled={disabled}>{title}</SubmitButton>
 			</form>
 			{
