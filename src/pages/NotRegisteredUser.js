@@ -20,7 +20,6 @@ export const NotRegisteredUser = () => {
 						const onSubmit = ({ email, password }) => {
 							const variables = { email, password }
 							registerUser({ variables }).then(({ data }) => {
-								console.log('data', data)
 								const { token } = data.registerUser
 								activateAuth(token)
 							}).catch(e => {
@@ -42,7 +41,6 @@ export const NotRegisteredUser = () => {
 							const variables = { email, password }
 							authUser({ variables }).then(({ data }) => {
 								const { token } = data.authUser
-								console.log(token)
 								activateAuth(token)
 							}).catch(e => {
 								console.error(e.message) // eslint-disable-line no-console

@@ -24,7 +24,6 @@ export const App = () => {
 					<NotFound default />
 					<Home path='/' />
 					{ !isAuth && <NotRegisteredUser path='/login' /> }
-					{ !isAuth && <Redirect from='/favs' to='/login' noThrow /> }
 					{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
 
 					{ isAuth && <Redirect from='/login' to='/' noThrow /> }
