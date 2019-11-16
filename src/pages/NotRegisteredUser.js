@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react'
 
-import { Context } from '../Context'
+import { AuthContext } from '../AuthContext'
 
 import { RegisterMutation } from '../containers/RegisterMutation'
 import { LoginMutation } from '../containers/LoginMutation'
@@ -10,7 +10,7 @@ import { UserForm } from '../components/UserForm'
 
 export const NotRegisteredUser = () => {
 
-	const { activateAuth} = useContext(Context)
+	const { activateAuth } = useContext(AuthContext)
 
 	return (
 		<Fragment>

@@ -6,16 +6,16 @@ import { ApolloProvider } from 'react-apollo'
 
 import * as serviceWorker from './serviceWorker';
 
-import Context from './Context'
+import AuthContext from './AuthContext'
 
 import { App } from './App'
 
 ReactDOM.render(
-	<Context.Provider>
+	<AuthContext.Provider>
 		<ApolloProvider client={apolloClient}>
 			<App />
 		</ApolloProvider>
-	</Context.Provider>, document.getElementById('root'))
+	</AuthContext.Provider>, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

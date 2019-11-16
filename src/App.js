@@ -2,7 +2,7 @@ import React, { StrictMode, useContext, Suspense } from 'react';
 
 import { Router, Redirect } from '@reach/router';
 
-import { Context } from './Context'
+import { AuthContext } from './AuthContext'
 
 import { NotRegisteredUser } from './pages/NotRegisteredUser'
 import { User } from './pages/User'
@@ -14,7 +14,9 @@ const Home = React.lazy(() => import('./pages/Home'))
 
 
 export const App = () => {
-	const { isAuth } = useContext(Context)
+	const { isAuth } = useContext(AuthContext)
+	//const { userData } = useContext(AuthContext)
+	//console.log(userData)
 
 	return (
 		<StrictMode>
