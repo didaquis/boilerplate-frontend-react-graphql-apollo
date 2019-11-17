@@ -26,10 +26,51 @@ function deleteSession() {
 	sessionStorage.clear();
 }
 
+/**
+ * Serialize and save user data in Session Storage
+ * @param {string|number|Array|Object} data - data to store
+ */
+function storeUserDataOnSessionStorage(data) {
+	const replacer = (key, value) => {
+		if (typeof value === 'boolean' || typeof value === 'number') {
+			return String(value);
+		}
+		return value;
+	};
+	sessionStorage.setItem('userData', JSON.stringify(data, replacer));
+}
+
+/**
+ * Recover and unserialize user data from Session Storage
+ * @return {Object}
+ */
+function recoverUserDataFromSessionStorage() {
+	const reviver = (key, value) => {
+		if (value === 'true') {
+			return true
+		}
+		if (value === 'false') {
+			return false
+		}
+		return value;
+	};
+	return JSON.parse(sessionStorage.getItem('userData'), reviver) || {};
+}
+
+/**
+ * Delete user data in Session Storage
+ */
+function deleteUserDataFromSessionStorage() {
+	sessionStorage.removeItem('userData');
+}
+
 module.exports = {
 	regexNombreUsuario,
 	regexPassword,
 	saveSession,
 	recoverSession,
-	deleteSession
+	deleteSession,
+	storeUserDataOnSessionStorage,
+	recoverUserDataFromSessionStorage,
+	deleteUserDataFromSessionStorage
 };

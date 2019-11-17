@@ -10,6 +10,7 @@ const SIZE = '36px'
 
 export const NavBar = () => {
 	const { isAuth } = useContext(AuthContext)
+	const { userData } = useContext(AuthContext)
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark justify-content-between d-flex mb-5 border-bottom border-info">
@@ -17,7 +18,7 @@ export const NavBar = () => {
 				<MdHome size={SIZE}/>
 			</Link>
 			{ 
-				isAuth && <Link className="navbar-item text-light font-weight-bold pt-2" to='/user-administration'>
+				isAuth && userData.isAdmin && <Link className="navbar-item text-light font-weight-bold pt-2" to='/user-administration'>
 					<MdPeopleOutline size={SIZE}/>
 				</Link>
 			}

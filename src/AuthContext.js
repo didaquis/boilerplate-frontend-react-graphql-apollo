@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react'
 
-//import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
-import { saveSession, recoverSession, deleteSession } from './utils/utils'
+import { saveSession, recoverSession, deleteSession, storeUserDataOnSessionStorage, recoverUserDataFromSessionStorage, deleteUserDataFromSessionStorage } from './utils/utils'
 
 export const AuthContext = createContext()
 
@@ -11,31 +11,30 @@ const Provider = ({ children }) => {
 		return recoverSession('token')
 	})
 
-	// const [userData, setUserData] = useState(() => {
-	// 	const token = recoverSession('token')
-	// 	const decodedToken = jwt.decode(token) || {};
-	// 	//console.log('deco', decodedToken)
-	// 	const userData = {
-	// 		email: decodedToken.email,
-	// 		isAdmin: decodedToken.isAdmin,
-	// 		isActive: decodedToken.isActive,
-	// 		uuid: decodedToken.uuid
-	// 	}
-	// 	return userData
-	// })
-
+	const [userData, setUserData] = useState(() => {
+		return recoverUserDataFromSessionStorage()
+	})
 
 	const value = {
 		isAuth,
-		//userData,
+		userData,
 		activateAuth: (token) => {
+			const decodedToken = jwt.decode(token) || {};
+			const userData = {
+				email: decodedToken.email,
+				isAdmin: decodedToken.isAdmin,
+				isActive: decodedToken.isActive,
+				uuid: decodedToken.uuid
+			}
+			storeUserDataOnSessionStorage(userData)
+			setUserData(userData)
 			saveSession('token', token)
-			// setUserData({})
 			setIsAuth(true)
 		},
 		removeAuth: () => {
-			//setUserData({})
 			setIsAuth(false)
+			setUserData({})
+			deleteUserDataFromSessionStorage()
 			deleteSession()
 		}
 	}

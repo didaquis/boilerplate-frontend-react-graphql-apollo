@@ -19,9 +19,7 @@ const UserAdministration = React.lazy(() => import('./pages/UserAdministration')
 
 export const App = () => {
 	const { isAuth } = useContext(AuthContext)
-	//const { userData } = useContext(AuthContext)
-	//console.log(userData)
-
+	const { userData } = useContext(AuthContext)
 
 // didac TO DO: evitar que aquellos usuarios que no sean administradores pueda acceder a '/user-administration'
 	return (
@@ -34,13 +32,26 @@ export const App = () => {
 								<Router>
 									<Page404 default />
 									<Home path='/' />
+
+									{
+										// If is not authenticated...
+									}
 									{ !isAuth && <Auth path='/login' /> }
 									{ !isAuth && <Registration path='/register' /> }
 									{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
 									{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
 
+									{
+										// If it's authenticated user...
+									}
 									{ isAuth && <Redirect from='/login' to='/' noThrow /> }
 									{ isAuth && <Redirect from='/register' to='/' noThrow /> }
+
+									{
+										// If it's authenticated user but don't have administrator role...
+									}
+									{ isAuth && !userData.isAdmin && <Redirect from='/user-administration' to='/' noThrow /> }
+
 									<UserAdministration path='/user-administration' />
 									<User path='/user' />
 								</Router>

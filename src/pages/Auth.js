@@ -10,7 +10,6 @@ import { LoginForm } from '../components/LoginForm'
 export const Auth = () => {
 
 	const { activateAuth } = useContext(AuthContext)
-	const { isAuth } = useContext(AuthContext)
 
 	return (
 		<Fragment>
@@ -33,11 +32,9 @@ export const Auth = () => {
 					}
 				}
 			</LoginMutation>
-			{ 
-				!isAuth && <Link className="text-light font-weight-light" to='/register'>
-					Don't have an account? <span role="img" aria-label="Winking Face">😉</span>
-				</Link>
-			}
+			<Link className="text-light font-weight-light" to='/register'>
+				Don't have an account? <span role="img" aria-label="Winking Face">😉</span>
+			</Link>
 		</Fragment>
 	)
 }
