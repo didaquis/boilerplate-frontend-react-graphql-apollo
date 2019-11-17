@@ -2,13 +2,13 @@ import React, { Fragment } from 'react'
 
 import { PageTitle } from '../components/PageTitle'
 
-import { UsersWithQuery } from '../containers/GetListOfUsers'
+import { GetListOfUsers } from '../containers/GetListOfUsers'
 
 const UserAdministration = () => {
 	return (
 		<Fragment>
 			<PageTitle text='User administration panel' />
-			<UsersWithQuery />
+			<GetListOfUsers />
 		</Fragment>
 	)
 }
