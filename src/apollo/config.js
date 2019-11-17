@@ -1,5 +1,4 @@
-//import ApolloClient, { InMemoryCache } from 'apollo-boost';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { recoverSession, deleteSession } from '../utils/utils';
 
 /* Configuration imported from '.env' file */
@@ -28,8 +27,8 @@ const apolloClient = new ApolloClient({
 			deleteSession()
 			window.location.href = '/'
 		}
-	}
-	//cache: new InMemoryCache()
+	},
+	cache: new InMemoryCache()
 });
 
 export default apolloClient;
