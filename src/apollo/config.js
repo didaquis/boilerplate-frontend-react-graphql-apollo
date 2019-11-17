@@ -1,4 +1,5 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
+//import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import ApolloClient from 'apollo-boost';
 import { recoverSession, deleteSession } from '../utils/utils';
 
 /* Configuration imported from '.env' file */
@@ -14,15 +15,15 @@ const apolloClient = new ApolloClient({
 	request: operation => {
 		const token = recoverSession('token');
 		const authorization = token ? `Bearer ${token}` : '';
+
 		operation.setContext({
 			headers: {
 				authorization
 			}
 		})
 	},
-	onError: ({ networkError, graphQLErrors }) => {
-		//console.error('graphQLErrors', graphQLErrors);
-		//console.error('networkError', networkError);
+	onError: (error) => {
+		const { networkError } = error;
 		if (networkError && networkError.response === 'invalid_token') {
 			deleteSession()
 			window.location.href = '/'
