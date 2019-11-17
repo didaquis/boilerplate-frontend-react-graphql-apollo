@@ -4,7 +4,8 @@ import { Router, Redirect } from '@reach/router';
 
 import { AuthContext } from './AuthContext'
 
-import { NotRegisteredUser } from './pages/NotRegisteredUser'
+import { Auth } from './pages/Auth'
+import { Registration } from './pages/Registration'
 import { User } from './pages/User'
 import { Page404 } from './pages/Page404'
 
@@ -32,11 +33,13 @@ export const App = () => {
 						<Router>
 							<Page404 default />
 							<Home path='/' />
-							{ !isAuth && <NotRegisteredUser path='/login' /> }
+							{ !isAuth && <Auth path='/login' /> }
+							{ !isAuth && <Registration path='/register' /> }
 							{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
 							{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
 
 							{ isAuth && <Redirect from='/login' to='/' noThrow /> }
+							{ isAuth && <Redirect from='/register' to='/' noThrow /> }
 							<UserAdministration path='/user-administration' />
 							<User path='/user' />
 						</Router>

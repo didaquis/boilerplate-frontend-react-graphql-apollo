@@ -16,9 +16,11 @@ export const NavBar = () => {
 			<Link className="navbar-brand text-light font-weight-bold pt-2" to='/'>
 				<MdHome size={SIZE}/>
 			</Link>
-			<Link className="navbar-item text-light font-weight-bold pt-2" to='/user-administration'>
-				<MdPeopleOutline size={SIZE}/>
-			</Link>
+			{ 
+				isAuth && <Link className="navbar-item text-light font-weight-bold pt-2" to='/user-administration'>
+					<MdPeopleOutline size={SIZE}/>
+				</Link>
+			}
 			<Link className="navbar-item text-light font-weight-bold pt-2" to='/user'>
 				{ !isAuth && <IoMdLogIn size={SIZE}/> }
 				{ isAuth && <IoMdLogOut size={SIZE}/> }
