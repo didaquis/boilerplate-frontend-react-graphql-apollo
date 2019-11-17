@@ -27,7 +27,9 @@ export const RegisterForm = ({ error, disabled, onSubmit, title }) => {
 					<label htmlFor="inputPasswordRegisterForm" className="text-light">Password</label>
       				<input disabled={disabled} className="form-control" id="inputPasswordRegisterForm" placeholder='password' type='password' {...password} required />
 				</div>
-				<SubmitButton disabled={disabled}>{title}</SubmitButton>
+				<div className="mt-2 ml-1">
+					<SubmitButton disabled={disabled}>{title}</SubmitButton>
+				</div>
 			</form>
 			{
 				error && <ErrorAlert errorMessage={error} />

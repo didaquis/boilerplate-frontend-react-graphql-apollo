@@ -18,7 +18,7 @@ export const LoginForm = ({ error, disabled, onSubmit, title }) => {
 	return (
 		<Fragment>
 			<PageTitle text={title} />
-			<form className="form-row mb-5" disabled={disabled} onSubmit={handleSubmit}>
+			<form className="form-row mb-3" disabled={disabled} onSubmit={handleSubmit}>
 				<div className="form-group col-md-6">
 					<label htmlFor="inputEmailLoginForm" className="text-light">Email</label>
       				<input disabled={disabled} className="form-control" id="inputEmailLoginForm" placeholder='email' {...email} required autoFocus />
@@ -27,7 +27,9 @@ export const LoginForm = ({ error, disabled, onSubmit, title }) => {
 					<label htmlFor="inputPasswordLoginForm" className="text-light">Password</label>
       				<input disabled={disabled} className="form-control" id="inputPasswordLoginForm" placeholder='password' type='password' {...password} required />
 				</div>
-				<SubmitButton disabled={disabled}>{title}</SubmitButton>
+				<div className="mt-2 ml-1">
+					<SubmitButton disabled={disabled}>{title}</SubmitButton>
+				</div>
 			</form>
 			{
 				error && <ErrorAlert errorMessage={error} />
