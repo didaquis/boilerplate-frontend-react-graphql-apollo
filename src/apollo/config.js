@@ -1,4 +1,4 @@
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { recoverSession, deleteSession } from '../utils/utils';
 
 /* Configuration imported from '.env' file */
@@ -7,7 +7,7 @@ const backendHost 		= process.env.REACT_APP_HOST;
 const backendPort 		= process.env.REACT_APP_PORT;
 const backendGraphql 	= process.env.REACT_APP_GRAPHQL;
 
-const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${backendGraphql}/`;
+const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${backendGraphql}`;
 
 const apolloClient = new ApolloClient({
 	uri: backendAddress,
@@ -28,6 +28,7 @@ const apolloClient = new ApolloClient({
 			window.location.href = '/'
 		}
 	}
+	//cache: new InMemoryCache()
 });
 
 export default apolloClient;
