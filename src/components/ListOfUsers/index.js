@@ -10,7 +10,7 @@ export const ListOfUsers = ( { users = [] } ) => {
 						<th scope="col">Email</th>
 						<th scope="col">Is administrator ?</th>
 						<th scope="col">Is active ?</th>
-						<th scope="col">Degistration date</th>
+						<th scope="col">Registration date</th>
 						<th scope="col">Last login</th>
 					</tr>
 				</thead>
