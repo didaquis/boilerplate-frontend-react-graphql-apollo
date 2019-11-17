@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { parseUnixTimestamp } from '../../utils/utils'
+
 export const ListOfUsers = ( { users = [] } ) => {
 	return (
 		<section>
@@ -22,8 +24,8 @@ export const ListOfUsers = ( { users = [] } ) => {
 									<td>{user.email}</td>
 									<td>{(user.isAdmin) ? 'yes': 'no'}</td>
 									<td>{(user.isActive) ? 'yes': 'no'}</td>
-									<td>{user.registrationDate}</td>
-									<td>{user.lastLogin}</td>
+									<td>{parseUnixTimestamp(user.registrationDate)}</td>
+									<td>{parseUnixTimestamp(user.lastLogin)}</td>
 								</tr>
 							)
 						})
