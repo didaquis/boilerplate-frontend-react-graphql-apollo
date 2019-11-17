@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost';
-import { recoverSession } from '../utils/utils';
+import { recoverSession, deleteSession } from '../utils/utils';
 
 /* Configuration imported from '.env' file */
 const backendProtocol 	= process.env.REACT_APP_PROTOCOL;
@@ -7,7 +7,7 @@ const backendHost 		= process.env.REACT_APP_HOST;
 const backendPort 		= process.env.REACT_APP_PORT;
 const backendGraphql 	= process.env.REACT_APP_GRAPHQL;
 
-const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${backendGraphql}`;
+const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${backendGraphql}/`;
 
 const apolloClient = new ApolloClient({
 	uri: backendAddress,
@@ -21,10 +21,10 @@ const apolloClient = new ApolloClient({
 		})
 	},
 	onError: ({ networkError, graphQLErrors }) => {
-		console.error('graphQLErrors', graphQLErrors);
-		console.error('networkError', networkError);
+		//console.error('graphQLErrors', graphQLErrors);
+		//console.error('networkError', networkError);
 		if (networkError && networkError.response === 'invalid_token') {
-			window.sessionStorage.removeItem('token')
+			deleteSession()
 			window.location.href = '/'
 		}
 	}

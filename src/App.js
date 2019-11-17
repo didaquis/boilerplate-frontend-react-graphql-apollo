@@ -30,19 +30,22 @@ export const App = () => {
 				<div className="container">
 					<Suspense fallback={<Spinner />}>
 						<NavBar />
-						<Router>
-							<Page404 default />
-							<Home path='/' />
-							{ !isAuth && <Auth path='/login' /> }
-							{ !isAuth && <Registration path='/register' /> }
-							{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
-							{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
+							<main className="pb-4">
+								<Router>
+									<Page404 default />
+									<Home path='/' />
+									{ !isAuth && <Auth path='/login' /> }
+									{ !isAuth && <Registration path='/register' /> }
+									{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
+									{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
 
-							{ isAuth && <Redirect from='/login' to='/' noThrow /> }
-							{ isAuth && <Redirect from='/register' to='/' noThrow /> }
-							<UserAdministration path='/user-administration' />
-							<User path='/user' />
-						</Router>
+									{ isAuth && <Redirect from='/login' to='/' noThrow /> }
+									{ isAuth && <Redirect from='/register' to='/' noThrow /> }
+									<UserAdministration path='/user-administration' />
+									<User path='/user' />
+								</Router>
+							</main>
+						<div className="row pb-5"></div>
 						<Footer />
 					</Suspense>
 				</div>
