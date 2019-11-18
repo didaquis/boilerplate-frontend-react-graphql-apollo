@@ -21,7 +21,6 @@ export const App = () => {
 	const { isAuth } = useContext(AuthContext)
 	const { userData } = useContext(AuthContext)
 
-// didac TO DO: evitar que aquellos usuarios que no sean administradores pueda acceder a '/user-administration'
 	return (
 		<StrictMode>
 			<div className="container-fluid bg-dark">

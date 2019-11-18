@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
