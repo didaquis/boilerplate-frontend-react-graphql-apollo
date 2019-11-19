@@ -8,7 +8,7 @@ This repository is for the frontend and is made to work with another boilerplate
 If you prefer, you can use one of these boilerplates without using the other! Feel free to explore ideas like develop your own backend in PHP or your frontend in Angular, for example.
 
 
-### 🎁 What it's included on the backend boilerplate?
+### 🎁 What it's included on the frontend boilerplate?
 Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 
 **✨ These are some of the highlights:** 
@@ -20,7 +20,7 @@ Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 ✅ If you don't like Bootstrap, it's easy to implement any other one UI library or use your own CSS  
 
 ### 📝 Frontend Requirements
-* Backend must be running. [The backend boilerplate](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
+* Backend must be running. I recommend use my [backend boilerplate](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
 * Node.js 10 or higher (just for development)
 
 ### 📚 How to run the application?
@@ -29,7 +29,6 @@ Technologies used are: React + GraphQL + Apollo + Bootstrap 4
   * Duplicate the configuration file `_env` and rename as `.env`
   * Edit the file `.env`
 * Then use: `npm run start`. 
-* That's it! That was fast enough, right? 🚀
 
 **❗️You need help with `.env` file?** 
 
