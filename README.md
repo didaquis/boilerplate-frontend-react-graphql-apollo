@@ -1,25 +1,60 @@
-# boilerplate-frontend-react-graphql-apollo (client)
+# ⚡️ Boilerplate: Frontend with React + GraphQL + Apollo
 
-This repo is a boilerplate of application client made with React + GraphQL + Apollo + Bootstrap.
+This project is an easy and fast way to start new projects in JavaScript. 
+The main goal is provide two repositories: one for the backend and one for the frontend application. 
+
+This repository is for the frontend and is made to work with another boilerplate: [the backend](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
+
+If you prefer, you can use one of these boilerplates without using the other! Feel free to explore ideas like develop your own backend in PHP or your frontend in Angular, for example.
 
 
-### Requirements:
-* Backend must be running. See: https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb
-* Node.js 10 or higher
+### 🎁 What it's included on the backend boilerplate?
+Technologies used are: React + GraphQL + Apollo + Bootstrap 4
+
+**✨ These are some of the highlights:** 
+
+✅ A frontend application ready to use!  
+✅ Users can login and registrate  
+✅ Separated routes for users with role 'administrator'  
+✅ Ready to connect with backend  
+✅ If you don't like Bootstrap, it's easy to implement any other one UI library or use your own CSS  
+
+### 📝 Frontend Requirements
+* Backend must be running. [The backend boilerplate](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
+* Node.js 10 or higher (just for development)
+
+### 📚 How to run the application?
+* Use the command: `npm install`. If you are deploying the app in production, it's better to use this command: `npm install --production`
 * Configure the application:
-  * Edit the configuration in file `_env`
-  * Rename the file `_env` to `.env`
-* Install dependencies: `npm install`
+  * Duplicate the configuration file `_env` and rename as `.env`
+  * Edit the file `.env`
+* Then use: `npm run start`. 
+* That's it! That was fast enough, right? 🚀
 
+**❗️You need help with `.env` file?** 
 
-### Available Scripts:
+Do not worry, here you have a guide:
 
-* Run application (development mode): `npm start`
-* Run test (interactive watch mode): `npm test`
+| Key | Description |
+|-----|-------------|
+| REACT_APP_PROTOCOL | Protocol to communicate with backend. Set http or https |
+| REACT_APP_HOST | Host of backend. An IP or domain |
+| REACT_APP_PORT | Port of backend |
+| REACT_APP_GRAPHQL | Endpoint of GraphQL API |
+
+### 💻 Tricks for development
+* Run app in dev mode: `npm run start`
+* Run the linter: `npm run lint`
 * Builds the app for production to the `build` folder: `npm run build`
 
+### Would you like to contribute to this project?
+It would be great to receive your help. ♥️ 
 
-### Useful resources:
+You can collaborate in multiple ways, of course. I recommend you check the **Roadmap** section of this documentation, but let me give you some ideas:
+* Help me with this documentation. If you think something it's not clear, open an issue and talk to me!
+* Share this project, mark it as a favorite (⭐️) or make some suggestions
+* Help me to improve the implementation of React or Apollo Client. I'm not an expert!
 
-* Chrome Extension: Apollo Client Developer Tools
-
+### Roadmap
+Some ideas that I would like to implement:
+* Add test!
