@@ -4,9 +4,9 @@ import { Router, Redirect } from '@reach/router';
 
 import { AuthContext } from './AuthContext'
 
-import { Auth } from './pages/Auth'
+import { Login } from './pages/Login'
 import { Registration } from './pages/Registration'
-import { User } from './pages/User'
+import { Logout } from './pages/Logout'
 import { Page404 } from './pages/Page404'
 
 import { NavBar } from './components/NavBar'
@@ -35,10 +35,10 @@ export const App = () => {
 									{
 										// If is not authenticated...
 									}
-									{ !isAuth && <Auth path='/login' /> }
+									{ !isAuth && <Login path='/login' /> }
 									{ !isAuth && <Registration path='/register' /> }
 									{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
-									{ !isAuth && <Redirect from='/user' to='/login' noThrow /> }
+									{ !isAuth && <Redirect from='/logout' to='/login' noThrow /> }
 
 									{
 										// If it's authenticated user...
@@ -52,7 +52,7 @@ export const App = () => {
 									{ isAuth && !userData.isAdmin && <Redirect from='/user-administration' to='/' noThrow /> }
 
 									<UserAdministration path='/user-administration' />
-									<User path='/user' />
+									<Logout path='/logout' />
 								</Router>
 							</main>
 						<div className="row pb-5"></div>

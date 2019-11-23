@@ -7,7 +7,7 @@ import { LoginMutation } from '../containers/LoginMutation'
 
 import { LoginForm } from '../components/LoginForm'
 
-export const Auth = () => {
+export const Login = () => {
 
 	const { activateAuth } = useContext(AuthContext)
 

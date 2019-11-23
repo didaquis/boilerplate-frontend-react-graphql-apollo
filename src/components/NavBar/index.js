@@ -22,7 +22,7 @@ export const NavBar = () => {
 					<MdPeopleOutline size={SIZE}/>
 				</Link>
 			}
-			<Link className="navbar-item text-light font-weight-bold pt-2" to='/user'>
+			<Link className="navbar-item text-light font-weight-bold pt-2" to='/logout'>
 				{ !isAuth && <IoMdLogIn size={SIZE}/> }
 				{ isAuth && <IoMdLogOut size={SIZE}/> }
 			</Link>

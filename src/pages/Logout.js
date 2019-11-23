@@ -4,7 +4,7 @@ import { AuthContext } from '../AuthContext'
 import { SubmitButton } from '../components/SubmitButton'
 import { PageTitle } from '../components/PageTitle'
 
-export const User = () => {
+export const Logout = () => {
 	const { removeAuth } = useContext(AuthContext)
 	return (
 		<Fragment>
