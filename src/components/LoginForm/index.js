@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react'
 import { SubmitButton } from '../SubmitButton'
 import { ErrorAlert } from '../ErrorAlert'
-import { useInputValue } from '../../hooks/useInputValue'
-
 import { PageTitle } from '../PageTitle'
+
+import { useInputValue } from '../../hooks/useInputValue'
+import { validateLoginForm } from '../../utils/utils'
+
 
 export const LoginForm = ({ error, disabled, onSubmit, title }) => {
 
@@ -28,7 +30,7 @@ export const LoginForm = ({ error, disabled, onSubmit, title }) => {
       				<input disabled={disabled} className="form-control" id="inputPasswordLoginForm" placeholder='password' type='password' {...password} required />
 				</div>
 				<div className="mt-2 ml-1">
-					<SubmitButton disabled={disabled}>{title}</SubmitButton>
+					<SubmitButton disabled={disabled || !validateLoginForm(email.value, password.value)}>{title}</SubmitButton>
 				</div>
 			</form>
 			{
