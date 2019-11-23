@@ -24,11 +24,17 @@ Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 * Node.js 10 or higher (just for development)
 
 ### 📚 How to run the application?
-* Use the command: `npm install`. If you are deploying the app in production, it's better to use this command: `npm install --production`
+* Use the command: `npm install`.
 * Configure the application:
   * Duplicate the configuration file `_env` and rename as `.env`
   * Edit the file `.env`
 * Then use: `npm run start`. 
+
+### 🚀 How to deploy?
+* Use the command: `npm install --production`.
+* Make sure you have the correct enviroment vars configuration on the `.env` file.
+* Then use `npm run build` to create a production bundle. This bundle will be created in the `./build` folder.
+* The content of `./build` folder is ready to be deployed to production.
 
 **❗️You need help with `.env` file?** 
 
@@ -44,7 +50,6 @@ Do not worry, here you have a guide:
 ### 💻 Tricks for development
 * Run app in dev mode: `npm run start`
 * Run the linter: `npm run lint`
-* Builds the app for production to the `build` folder: `npm run build`
 
 ### Would you like to contribute to this project?
 It would be great to receive your help. ♥️ 
