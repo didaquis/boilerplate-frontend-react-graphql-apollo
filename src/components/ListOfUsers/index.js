@@ -5,7 +5,7 @@ import { parseUnixTimestamp } from '../../utils/utils'
 
 export const ListOfUsers = ( { users = [] } ) => {
 	return (
-		<section>
+		<section className="table-responsive">
 			<table className="table text-light">
   				<thead>
   					<tr>
