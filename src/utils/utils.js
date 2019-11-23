@@ -153,7 +153,6 @@ function deleteUserDataFromSessionStorage() {
 
 module.exports = {
 	regexEmail,
-	regexUsername,
 	regexPassword,
 	validateLoginForm,
 	validateRegisterForm,
