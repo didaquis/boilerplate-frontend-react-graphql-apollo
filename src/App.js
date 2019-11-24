@@ -1,6 +1,6 @@
-import React, { StrictMode, useContext, Suspense } from 'react';
+import React, { StrictMode, useContext, Suspense } from 'react'
 
-import { Router, Redirect } from '@reach/router';
+import { Router, Redirect } from '@reach/router'
 
 import { AuthContext } from './AuthContext'
 

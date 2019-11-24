@@ -2,12 +2,12 @@ import React from 'react'
 
 import { Jumbotron } from '../components/Jumbotron'
 
-const HomePage = () => {
+const Home = () => {
 	return (
 		<Jumbotron title='Home' subtitle='Welcome! This is a boilerplate frontend' />
 	)
 }
 
-HomePage.displayName = 'Home'
+Home.displayName = 'Home'
 
-export default HomePage
+export default Home

@@ -1,5 +1,5 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
-import { recoverSession, deleteSession } from '../utils/utils';
+import ApolloClient, { InMemoryCache } from 'apollo-boost'
+import { recoverSession, deleteSession } from '../utils/utils'
 
 /* Configuration imported from '.env' file */
 const backendProtocol 	= process.env.REACT_APP_PROTOCOL;
@@ -13,7 +13,7 @@ const apolloClient = new ApolloClient({
 	uri: backendAddress,
 	request: operation => {
 		const token = recoverSession('token');
-		const authorization = token ? `Bearer ${token}` : '';
+		const authorization = token ? `Bearer ${token}` : ''
 
 		operation.setContext({
 			headers: {

@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken'
 
 import { saveSession, recoverSession, deleteSession, storeUserDataOnSessionStorage, recoverUserDataFromSessionStorage, deleteUserDataFromSessionStorage } from './utils/utils'
 

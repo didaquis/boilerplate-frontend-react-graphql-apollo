@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 /* Import apollo client */
-import apolloClient from './apollo/config';
+import apolloClient from './apollo/config'
 import { ApolloProvider } from 'react-apollo'
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker'
 
 import AuthContext from './AuthContext'
 
