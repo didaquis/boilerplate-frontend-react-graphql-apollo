@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Mutation } from 'react-apollo'
 
@@ -10,4 +11,8 @@ export const RegisterMutation = ( { children } ) => {
 			{children}
 		</Mutation>
 	)
+}
+
+RegisterMutation.propTypes = {
+	children: PropTypes.func.isRequired
 }

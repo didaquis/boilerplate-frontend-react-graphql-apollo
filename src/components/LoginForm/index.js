@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+
 import { SubmitButton } from '../SubmitButton'
 import { ErrorAlert } from '../ErrorAlert'
 
@@ -38,3 +40,8 @@ export const LoginForm = ({ error, disabled, onSubmit }) => {
 	)
 }
 
+LoginForm.propTypes = {
+	error: PropTypes.string,
+	disabled: PropTypes.bool.isRequired,
+	onSubmit: PropTypes.func.isRequired,
+}
