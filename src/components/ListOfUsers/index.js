@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 
 import { parseUnixTimestamp } from '../../utils/utils'
 
-export const ListOfUsers = ( { users = [] } ) => {
+export const ListOfUsers = ( { users } ) => {
 	return (
 		<section className="table-responsive">
 			<table className="table text-light">
-  				<thead>
-  					<tr>
+				<thead>
+					<tr>
 						<th scope="col">Email</th>
 						<th scope="col">Is administrator ?</th>
 						<th scope="col">Is active ?</th>
