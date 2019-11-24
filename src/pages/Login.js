@@ -5,6 +5,7 @@ import { AuthContext } from '../AuthContext'
 
 import { LoginMutation } from '../containers/LoginMutation'
 
+import { PageTitle } from '../components/PageTitle'
 import { LoginForm } from '../components/LoginForm'
 
 export const Login = () => {
@@ -13,6 +14,7 @@ export const Login = () => {
 
 	return (
 		<Fragment>
+			<PageTitle text='Log in' />
 			<LoginMutation>
 				{
 					(authUser, { data, loading, error }) => { // eslint-disable-line no-unused-vars
@@ -28,7 +30,7 @@ export const Login = () => {
 
 						const errorMsg = error && 'Invalid credentials'
 
-						return <LoginForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Log in' />
+						return <LoginForm disabled={loading} error={errorMsg} onSubmit={onSubmit} />
 					}
 				}
 			</LoginMutation>

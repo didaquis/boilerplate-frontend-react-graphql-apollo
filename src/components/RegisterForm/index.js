@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react'
 import { SubmitButton } from '../SubmitButton'
 import { ErrorAlert } from '../ErrorAlert'
-import { PageTitle } from '../PageTitle'
 
 import { useInputValue } from '../../hooks/useInputValue'
 import { validateRegisterForm } from '../../utils/utils'
 
 
-export const RegisterForm = ({ error, disabled, onSubmit, title }) => {
+export const RegisterForm = ({ error, disabled, onSubmit }) => {
 
 	const email = useInputValue('')
 	const password = useInputValue('')
@@ -20,7 +19,6 @@ export const RegisterForm = ({ error, disabled, onSubmit, title }) => {
 
 	return (
 		<Fragment>
-			<PageTitle text={title} />
 			<div className="row justify-content-center mt-4">
 				<form className="col-md-8" disabled={disabled} onSubmit={handleSubmit}>
 					<div className="form-group">
@@ -65,7 +63,7 @@ export const RegisterForm = ({ error, disabled, onSubmit, title }) => {
 						<small id="repeatPasswordHelp" className="form-text text-muted">At least 8 characters. It must contain numbers, lowercase letters and uppercase letters. The spaces are not allowed</small>
 					</div>
 					<div className="mt-2 ml-1">
-						<SubmitButton disabled={disabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>{title}</SubmitButton>
+						<SubmitButton disabled={disabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>Create account</SubmitButton>
 					</div>
 				</form>
 				<div className="col-md-8">

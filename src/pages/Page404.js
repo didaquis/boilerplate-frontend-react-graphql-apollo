@@ -5,7 +5,7 @@ import { ErrorAlert } from '../components/ErrorAlert'
 export const Page404 = () => {
 	return (
 		<Fragment>
-			<ErrorAlert errorMessage={'404'} />
+			<ErrorAlert errorMessage='404' />
 		</Fragment>
 	)
 }

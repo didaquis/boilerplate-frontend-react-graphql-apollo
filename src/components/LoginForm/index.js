@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react'
 import { SubmitButton } from '../SubmitButton'
 import { ErrorAlert } from '../ErrorAlert'
-import { PageTitle } from '../PageTitle'
 
 import { useInputValue } from '../../hooks/useInputValue'
 import { validateLoginForm } from '../../utils/utils'
 
 
-export const LoginForm = ({ error, disabled, onSubmit, title }) => {
+export const LoginForm = ({ error, disabled, onSubmit }) => {
 
 	const email = useInputValue('')
 	const password = useInputValue('')
@@ -19,7 +18,6 @@ export const LoginForm = ({ error, disabled, onSubmit, title }) => {
 
 	return (
 		<Fragment>
-			<PageTitle text={title} />
 			<form className="form-row mb-3" disabled={disabled} onSubmit={handleSubmit}>
 				<div className="form-group col-md-6">
 					<label htmlFor="inputEmailLoginForm" className="text-light">Email</label>
@@ -30,7 +28,7 @@ export const LoginForm = ({ error, disabled, onSubmit, title }) => {
       				<input disabled={disabled} className="form-control" id="inputPasswordLoginForm" placeholder='password' type='password' {...password} required />
 				</div>
 				<div className="mt-2 ml-1">
-					<SubmitButton disabled={disabled || !validateLoginForm(email.value, password.value)}>{title}</SubmitButton>
+					<SubmitButton disabled={disabled || !validateLoginForm(email.value, password.value)}>Log in</SubmitButton>
 				</div>
 			</form>
 			{

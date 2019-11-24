@@ -4,6 +4,7 @@ import { AuthContext } from '../AuthContext'
 
 import { RegisterMutation } from '../containers/RegisterMutation'
 
+import { PageTitle } from '../components/PageTitle'
 import { RegisterForm } from '../components/RegisterForm'
 
 
@@ -13,6 +14,7 @@ export const Registration = () => {
 
 	return (
 		<Fragment>
+			<PageTitle text='Create an account' />
 			<RegisterMutation>
 				{
 					(registerUser, { data, loading, error }) => { // eslint-disable-line no-unused-vars
@@ -28,7 +30,7 @@ export const Registration = () => {
 
 						const errorMsg = error && 'Data provided is not valid'
 
-						return <RegisterForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Sign up' />
+						return <RegisterForm disabled={loading} error={errorMsg} onSubmit={onSubmit} />
 					}
 				}
 			</RegisterMutation>
