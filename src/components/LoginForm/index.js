@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { SubmitButton } from '../SubmitButton'
+import { SubmitButtonHelper } from '../SubmitButtonHelper'
 import { ErrorAlert } from '../ErrorAlert'
 
 import { useInputValue } from '../../hooks/useInputValue'
@@ -17,7 +18,6 @@ export const LoginForm = ({ error, disabled, onSubmit }) => {
 		event.preventDefault()
 		onSubmit({ email: email.value, password: password.value })
 	}
-
 	return (
 		<Fragment>
 			<form className="form-row mb-3" disabled={disabled} onSubmit={handleSubmit}>
@@ -31,6 +31,7 @@ export const LoginForm = ({ error, disabled, onSubmit }) => {
 				</div>
 				<div className="mt-2 ml-1">
 					<SubmitButton disabled={disabled || !validateLoginForm(email.value, password.value)}>Log in</SubmitButton>
+					<SubmitButtonHelper mustShowHelper={!validateLoginForm(email.value, password.value)}></SubmitButtonHelper>
 				</div>
 			</form>
 			{

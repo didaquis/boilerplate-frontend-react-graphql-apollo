@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { SubmitButton } from '../SubmitButton'
+import { SubmitButtonHelper } from '../SubmitButtonHelper'
 import { ErrorAlert } from '../ErrorAlert'
 
 import { useInputValue } from '../../hooks/useInputValue'
@@ -66,6 +67,7 @@ export const RegisterForm = ({ error, disabled, onSubmit }) => {
 					</div>
 					<div className="mt-2 ml-1">
 						<SubmitButton disabled={disabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>Create account</SubmitButton>
+						<SubmitButtonHelper mustShowHelper={!validateRegisterForm(email.value, password.value, repeatPassword.value)}></SubmitButtonHelper>
 					</div>
 				</form>
 				<div className="col-md-8">
