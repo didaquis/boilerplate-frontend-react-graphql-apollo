@@ -14,7 +14,7 @@ export const NavBar = () => {
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark justify-content-between d-flex mb-5 border-bottom border-info">
-			<Link className="navbar-brand text-light font-weight-bold pt-2" to='/'>
+			<Link className="navbar-item text-light font-weight-bold pt-2" to='/'>
 				<MdHome size={SIZE}/>
 			</Link>
 			{ 
