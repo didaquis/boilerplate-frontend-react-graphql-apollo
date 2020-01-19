@@ -6,7 +6,7 @@ import { SubmitButtonHelper } from '../SubmitButtonHelper'
 import { ErrorAlert } from '../ErrorAlert'
 
 import { useInputValue } from '../../hooks/useInputValue'
-import { validateLoginForm } from '../../utils/utils'
+import { validateLoginForm } from '../../utils/validations'
 
 
 export const LoginForm = ({ error, disabled, onSubmit }) => {

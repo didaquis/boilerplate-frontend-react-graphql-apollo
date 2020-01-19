@@ -1,5 +1,5 @@
 import ApolloClient, { InMemoryCache } from 'apollo-boost'
-import { recoverSession, deleteSession } from '../utils/utils'
+import { recoverSession, deleteSession } from '../utils/session'
 
 /* Configuration imported from '.env' file */
 const backendProtocol 	= process.env.REACT_APP_PROTOCOL;

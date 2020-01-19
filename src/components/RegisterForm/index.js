@@ -6,7 +6,7 @@ import { SubmitButtonHelper } from '../SubmitButtonHelper'
 import { ErrorAlert } from '../ErrorAlert'
 
 import { useInputValue } from '../../hooks/useInputValue'
-import { validateRegisterForm } from '../../utils/utils'
+import { validateRegisterForm } from '../../utils/validations'
 
 
 export const RegisterForm = ({ error, disabled, onSubmit }) => {
