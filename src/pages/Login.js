@@ -27,7 +27,6 @@ export const Login = () => {
 								console.error(e.message) // eslint-disable-line no-console
 							})
 						}
-
 						const errorMsg = error && 'Invalid credentials'
 
 						return <LoginForm disabled={loading} error={errorMsg} onSubmit={onSubmit} />
