@@ -24,7 +24,7 @@ const apolloClient = new ApolloClient({
 	onError: (error) => {
 		if (error.graphQLErrors) {
 			error.graphQLErrors.forEach(err => {
-				if (err.extensions.code === 'UNAUTHENTICATED') {
+				if (err.extensions.code === 'UNAUTHENTICATED' || err.extensions.code === 'FORBIDDEN') {
 					deleteSession()
 					window.location.href = '/'
 				}
