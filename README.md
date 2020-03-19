@@ -1,21 +1,21 @@
 # ⚡️ Boilerplate: Frontend with React + GraphQL + Apollo
 
 This project is an easy and fast way to start new projects in JavaScript. 
-The main goal is provide two repositories: one for the backend and one for the frontend application. 
+The main goal is to provide two repositories: one for the backend and one for the frontend application. 
 
-This repository is for the frontend and is made to work with another boilerplate: [the backend](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
+This repository is for the frontend and is designed to work with another boilerplate: [the backend](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
 
-If you prefer, you can use one of these boilerplates without using the other! Feel free to explore ideas like develop your own backend in PHP or your frontend in Angular, for example.
+If you prefer it, you can use one of these boilerplates without using the other! Feel free to explore any ideas like developing your own backend in PHP or your frontend in Angular, for example.
 
 
-### 🎁 What it's included on the frontend boilerplate?
+### 🎁 What is included on the frontend boilerplate?
 Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 
 **✨ These are some of the highlights:** 
 
 ✅ A frontend application ready to use!  
 ✅ Users can login and registrate  
-✅ Separated routes for users with role 'administrator'  
+✅ Separated routes for users with the role of the 'administrator'  
 ✅ Ready to connect with backend  
 ✅ If you don't like Bootstrap, it's easy to implement any other one UI library or use your own CSS  
 
@@ -26,7 +26,7 @@ Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 ### 📚 How to run the application?
 * Use the command: `npm install`.
 * Configure the application:
-  * Duplicate the configuration file `_env` and rename as `.env`
+  * Duplicate the configuration file `_env` and rename it as `.env`
   * Edit the file `.env`
 * Then use: `npm run start`. 
 
@@ -36,9 +36,9 @@ Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 * Then use `npm run build` to create a production bundle. This bundle will be created in the `./build` folder.
 * The content of `./build` folder is ready to be deployed to production.
 
-**❗️You need help with `.env` file?** 
+**Do you need help with `.env` file?** 
 
-Do not worry, here you have a guide:
+Don't worry, here you have a guide:
 
 | Key | Description |
 |-----|-------------|
@@ -54,11 +54,8 @@ Do not worry, here you have a guide:
 ### Would you like to contribute to this project?
 It would be great to receive your help. ♥️ 
 
-You can collaborate in multiple ways, of course. I recommend you check the **Roadmap** section of this documentation, but let me give you some ideas:
+You can collaborate in multiple ways, of course. Let me give you some ideas:
 * Help me with this documentation. If you think something it's not clear, open an issue and talk to me!
 * Share this project, mark it as a favorite (⭐️) or make some suggestions
 * Help me to improve the implementation of React or Apollo Client. I'm not an expert!
 
-### Roadmap
-Some ideas that I would like to implement:
-* Add test!
