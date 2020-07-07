@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client'
 import { recoverSession, deleteSession } from '../utils/session'
 
 /* Configuration imported from '.env' file */
@@ -9,19 +9,30 @@ const backendGraphql 	= process.env.REACT_APP_GRAPHQL;
 
 const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${backendGraphql}`;
 
-const apolloClient = new ApolloClient({
-	uri: backendAddress,
-	request: operation => {
-		const token = recoverSession('token');
-		const authorization = token ? `Bearer ${token}` : ''
+const httpLink = new HttpLink({
+	uri: backendAddress
+})
 
-		operation.setContext({
-			headers: {
-				authorization
-			}
-		})
-	},
+const authMiddleware = new ApolloLink((operation, forward) => {
+	const token = recoverSession('token');
+	const authorization = token ? `Bearer ${token}` : ''
+	operation.setContext(({ headers = {} }) => ({
+		headers: {
+			...headers,
+			authorization: authorization,
+		},
+	}));
+  
+	return forward(operation);
+});
+
+
+const link = ApolloLink.from([authMiddleware, httpLink])
+
+const apolloClient = new ApolloClient({
+	link,
 	onError: (error) => {
+		console.log('onError apollo client')
 		if (error.graphQLErrors) {
 			error.graphQLErrors.forEach(err => {
 				if (err.extensions.code === 'UNAUTHENTICATED' || err.extensions.code === 'FORBIDDEN') {
