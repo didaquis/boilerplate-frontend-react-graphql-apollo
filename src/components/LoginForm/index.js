@@ -1,23 +1,46 @@
-import React, { Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
+//import { Spinner } from '../Spinner'
+import { ErrorAlert } from '../ErrorAlert'
 import { SubmitButton } from '../SubmitButton'
 import { SubmitButtonHelper } from '../SubmitButtonHelper'
-import { ErrorAlert } from '../ErrorAlert'
 
 import { useInputValue } from '../../hooks/useInputValue'
 import { validateLoginForm } from '../../utils/validations'
 
 
-export const LoginForm = ({ error, disabled, onSubmit }) => {
+import { useMutation } from '@apollo/client'
+
+import { LOGIN } from '../../gql/mutations/auth'
+
+export const LoginForm = ({ activateAuth }) => {
+
+	const [disabled, setDisabled] = useState(false)
+	const [error, setError] = useState(null)
+
+	const [ authUser ] = useMutation(LOGIN);
 
 	const email = useInputValue('')
 	const password = useInputValue('')
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault()
-		onSubmit({ email: email.value, password: password.value })
+		setDisabled(true)
+		setError(null)
+
+		const variables = { email: email.value, password: password.value }
+
+		authUser({ variables }).then(({ data }) => {
+			const { token } = data.authUser
+			activateAuth(token)
+		}).catch(e => {
+			setError(e.message)
+			console.error(e.message) // eslint-disable-line no-console
+		})
+		setDisabled(false)
 	}
+
 	return (
 		<Fragment>
 			<form className="form-row mb-3" disabled={disabled} onSubmit={handleSubmit}>
@@ -42,7 +65,5 @@ export const LoginForm = ({ error, disabled, onSubmit }) => {
 }
 
 LoginForm.propTypes = {
-	error: PropTypes.string,
-	disabled: PropTypes.bool.isRequired,
-	onSubmit: PropTypes.func.isRequired,
+	activateAuth: PropTypes.func.isRequired,
 }

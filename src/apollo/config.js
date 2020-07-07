@@ -1,4 +1,4 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { recoverSession, deleteSession } from '../utils/session'
 
 /* Configuration imported from '.env' file */

@@ -1,19 +1,17 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "0.5.56",
+  "version": "0.6.57",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.5",
+    "@apollo/client": "^3.0.0-rc.10",
     "@reach/router": "^1.3.3",
-    "apollo-boost": "^0.4.7",
     "dotenv": "^8.2.0",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "jsonwebtoken": "^8.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-apollo": "^3.1.5",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-scripts": "3.4.1"
