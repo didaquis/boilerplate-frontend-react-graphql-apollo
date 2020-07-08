@@ -1,15 +1,22 @@
-import React, { Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
+import { useMutation } from '@apollo/client'
 import PropTypes from 'prop-types'
 
+import { ErrorAlert } from '../ErrorAlert'
 import { SubmitButton } from '../SubmitButton'
 import { SubmitButtonHelper } from '../SubmitButtonHelper'
-import { ErrorAlert } from '../ErrorAlert'
 
 import { useInputValue } from '../../hooks/useInputValue'
 import { validateRegisterForm } from '../../utils/validations'
 
+import { REGISTER } from '../../gql/mutations/auth'
 
-export const RegisterForm = ({ error, disabled, onSubmit }) => {
+export const RegisterForm = ({ activateAuth }) => {
+
+	const [disabled, setDisabled] = useState(false)
+	const [error, setError] = useState(null)
+
+	const [ registerUser ] = useMutation(REGISTER);
 
 	const email = useInputValue('')
 	const password = useInputValue('')
@@ -17,7 +24,19 @@ export const RegisterForm = ({ error, disabled, onSubmit }) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		onSubmit({ email: email.value, password: password.value })
+		setDisabled(true)
+		setError(null)
+
+		const variables = { email: email.value, password: password.value }
+
+		registerUser({ variables }).then(({ data }) => {
+			const { token } = data.registerUser
+			activateAuth(token)
+		}).catch(e => {
+			setError(e.message)
+			console.error(e.message) // eslint-disable-line no-console
+		})
+		setDisabled(false)
 	}
 
 	return (
@@ -81,7 +100,5 @@ export const RegisterForm = ({ error, disabled, onSubmit }) => {
 }
 
 RegisterForm.propTypes = {
-	error: PropTypes.string,
-	disabled: PropTypes.bool.isRequired,
-	onSubmit: PropTypes.func.isRequired,
+	activateAuth: PropTypes.func.isRequired,
 }

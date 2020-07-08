@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react'
+import { useMutation } from '@apollo/client'
 import PropTypes from 'prop-types'
 
 import { ErrorAlert } from '../ErrorAlert'
@@ -7,9 +8,6 @@ import { SubmitButtonHelper } from '../SubmitButtonHelper'
 
 import { useInputValue } from '../../hooks/useInputValue'
 import { validateLoginForm } from '../../utils/validations'
-
-
-import { useMutation } from '@apollo/client'
 
 import { LOGIN } from '../../gql/mutations/auth'
 
@@ -23,7 +21,7 @@ export const LoginForm = ({ activateAuth }) => {
 	const email = useInputValue('')
 	const password = useInputValue('')
 
-	const handleSubmit = async (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault()
 		setDisabled(true)
 		setError(null)
