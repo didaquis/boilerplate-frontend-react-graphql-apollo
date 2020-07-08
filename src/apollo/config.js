@@ -1,4 +1,5 @@
 import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client'
+import { onError } from '@apollo/link-error'
 import { recoverSession, deleteSession } from '../utils/session'
 
 /* Configuration imported from '.env' file */
@@ -26,28 +27,28 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 	return forward(operation);
 });
 
+const errorLink = onError(({ operation, graphQLErrors, networkError, response }) => {
+	if (graphQLErrors) {
+		graphQLErrors.forEach(err => {
+			// err.message, err.locations, err.path, err.extensions
+			if (err.extensions.code === 'UNAUTHENTICATED' || err.extensions.code === 'FORBIDDEN') {
+				deleteSession()
+				window.location.href = '/'
+			}
+		})
+	}
 
-const link = ApolloLink.from([authMiddleware, httpLink])
+	if (networkError && networkError.response === 'invalid_token') {
+		deleteSession()
+		window.location.href = '/'
+	}
+});
+
+const link = ApolloLink.from([authMiddleware, errorLink, httpLink])
+
 
 const apolloClient = new ApolloClient({
 	link,
-	onError: (error) => {
-		console.log('onError apollo client')
-		if (error.graphQLErrors) {
-			error.graphQLErrors.forEach(err => {
-				if (err.extensions.code === 'UNAUTHENTICATED' || err.extensions.code === 'FORBIDDEN') {
-					deleteSession()
-					window.location.href = '/'
-				}
-			})
-		}
-
-		const { networkError } = error;
-		if (networkError && networkError.response === 'invalid_token') {
-			deleteSession()
-			window.location.href = '/'
-		}
-	},
 	cache: new InMemoryCache()
 });
 
