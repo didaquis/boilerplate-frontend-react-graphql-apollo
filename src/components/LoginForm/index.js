@@ -33,9 +33,8 @@ export const LoginForm = ({ activateAuth }) => {
 			activateAuth(token)
 		}).catch(e => {
 			setError(e.message)
-			console.error(e.message) // eslint-disable-line no-console
+			setDisabled(false)
 		})
-		setDisabled(false)
 	}
 
 	return (
