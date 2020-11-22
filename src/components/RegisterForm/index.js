@@ -46,7 +46,7 @@ export const RegisterForm = ({ activateAuth }) => {
 						<label htmlFor="inputEmailRegisterForm" className="text-light">Email <span className="text-danger">*</span></label>
 						<input
 							disabled={disabled}
-							inputmode="email"
+							inputMode="email"
 							className="form-control"
 							id="inputEmailRegisterForm"
 							placeholder='email'

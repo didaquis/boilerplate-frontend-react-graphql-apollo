@@ -42,7 +42,7 @@ export const LoginForm = ({ activateAuth }) => {
 			<form className="form-row mb-3" disabled={disabled} onSubmit={handleSubmit}>
 				<div className="form-group col-md-6">
 					<label htmlFor="inputEmailLoginForm" className="text-light">Email <span className="text-danger">*</span></label>
-					<input disabled={disabled} inputmode="email" className="form-control" id="inputEmailLoginForm" placeholder='email' {...email} required autoFocus />
+					<input disabled={disabled} inputMode="email" className="form-control" id="inputEmailLoginForm" placeholder='email' {...email} required autoFocus />
 				</div>
 				<div className="form-group col-md-6">
 					<label htmlFor="inputPasswordLoginForm" className="text-light">Password <span className="text-danger">*</span></label>
