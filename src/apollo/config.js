@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client'
-import { onError } from '@apollo/link-error'
+import { onError } from '@apollo/client/link/error'
 import { recoverSession, deleteSession } from '../utils/session'
 
 /* Configuration imported from '.env' file */
