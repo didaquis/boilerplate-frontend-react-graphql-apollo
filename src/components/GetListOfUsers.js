@@ -8,7 +8,7 @@ import { ListOfUsers } from './ListOfUsers'
 import { LIST_ALL_USERS } from '../gql/queries/users'
 
 export const GetListOfUsers = () => {
-	const { loading, error, data } = useQuery(LIST_ALL_USERS, { fetchPolicy: 'network-only' });
+	const { loading, error, data } = useQuery(LIST_ALL_USERS, { fetchPolicy: 'no-cache' });
 
 	if (loading) return <Spinner />
 	if (error) return <ErrorAlert errorMessage={error.message} />
