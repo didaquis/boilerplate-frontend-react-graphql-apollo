@@ -8,12 +8,10 @@ import { ListOfUsers } from './ListOfUsers'
 import { LIST_ALL_USERS } from '../gql/queries/users'
 
 export const GetListOfUsers = () => {
-	const minuteInMilliseconds = 60000
-	const tenMinutes = minuteInMilliseconds * 10
-	const { loading, error, data } = useQuery(LIST_ALL_USERS, { fetchPolicy: 'no-cache', pollInterval: tenMinutes });
+	const { loading, error, data, startPolling, stopPolling } = useQuery(LIST_ALL_USERS, { fetchPolicy: 'no-cache' });
 
 	if (loading) return <Spinner />
 	if (error) return <ErrorAlert errorMessage={error.message} />
 
-	return <ListOfUsers users={data.listAllUsers} />
+	return <ListOfUsers users={data.listAllUsers} startPolling={startPolling} stopPolling={stopPolling} />
 }

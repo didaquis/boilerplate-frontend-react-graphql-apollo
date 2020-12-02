@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { parseUnixTimestamp } from '../../utils/utils'
 
-export const ListOfUsers = ( { users } ) => {
+export const ListOfUsers = ( { users, startPolling, stopPolling } ) => {
+
+	useEffect(() => {
+		const minuteInMilliseconds = 60000
+		const tenMinutes = minuteInMilliseconds * 10
+		startPolling(tenMinutes)
+
+		return () => {
+		  stopPolling()
+		}
+	}, [startPolling, stopPolling])
+
 	return (
 		<section className="table-responsive">
 			<table className="table text-light">
@@ -47,5 +58,7 @@ ListOfUsers.propTypes = {
 			registrationDate: PropTypes.string.isRequired,
 			lastLogin: PropTypes.string.isRequired
 		})
-	)
+	),
+	startPolling: PropTypes.func.isRequired,
+	stopPolling: PropTypes.func.isRequired
 }
