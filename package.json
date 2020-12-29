@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "1.0.69",
+  "version": "1.0.70",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
@@ -33,7 +33,17 @@
   "author": "Dídac García (https://didaquis.github.io/)",
   "license": "MIT",
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "semi": [
+        "warn",
+        "always"
+      ],
+      "quotes": [
+        "warn",
+        "single"
+      ]
+    }
   },
   "browserslist": {
     "production": [
