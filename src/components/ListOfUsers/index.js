@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-import { parseUnixTimestamp } from '../../utils/utils'
+import { parseUnixTimestamp } from '../../utils/utils';
 
 export const ListOfUsers = ( { users, startPolling, stopPolling } ) => {
 
 	useEffect(() => {
-		const minuteInMilliseconds = 60000
-		const tenMinutes = minuteInMilliseconds * 10
-		startPolling(tenMinutes)
+		const minuteInMilliseconds = 60000;
+		const tenMinutes = minuteInMilliseconds * 10;
+		startPolling(tenMinutes);
 
 		return () => {
-		  stopPolling()
-		}
-	}, [startPolling, stopPolling])
+		  stopPolling();
+		};
+	}, [startPolling, stopPolling]);
 
 	return (
 		<section className="table-responsive">
@@ -38,14 +38,14 @@ export const ListOfUsers = ( { users, startPolling, stopPolling } ) => {
 									<td>{parseUnixTimestamp(user.registrationDate)}</td>
 									<td>{parseUnixTimestamp(user.lastLogin)}</td>
 								</tr>
-							)
+							);
 						})
 					}
 				</tbody>
 			</table>
 		</section>
-	)
-}
+	);
+};
 
 
 ListOfUsers.propTypes = {
@@ -61,4 +61,4 @@ ListOfUsers.propTypes = {
 	),
 	startPolling: PropTypes.func.isRequired,
 	stopPolling: PropTypes.func.isRequired
-}
+};

@@ -33,7 +33,7 @@ const validateLoginForm = (email, password) => {
 		dataIsValid = false;
 	}
 	return dataIsValid;
-}
+};
 
 /**
  * Validate the registration form data
@@ -61,7 +61,7 @@ const validateRegisterForm = (email, password, repeatPassword) => {
 		dataIsValid = false;
 	}
 	return dataIsValid;
-}
+};
 
 module.exports = {
 	regexEmail,

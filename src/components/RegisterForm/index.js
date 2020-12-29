@@ -1,42 +1,42 @@
-import React, { useState, Fragment } from 'react'
-import { useMutation } from '@apollo/client'
-import PropTypes from 'prop-types'
+import React, { useState, Fragment } from 'react';
+import { useMutation } from '@apollo/client';
+import PropTypes from 'prop-types';
 
-import { ErrorAlert } from '../ErrorAlert'
-import { SubmitButton } from '../SubmitButton'
-import { SubmitButtonHelper } from '../SubmitButtonHelper'
+import { ErrorAlert } from '../ErrorAlert';
+import { SubmitButton } from '../SubmitButton';
+import { SubmitButtonHelper } from '../SubmitButtonHelper';
 
-import { useInputValue } from '../../hooks/useInputValue'
-import { validateRegisterForm } from '../../utils/validations'
+import { useInputValue } from '../../hooks/useInputValue';
+import { validateRegisterForm } from '../../utils/validations';
 
-import { REGISTER } from '../../gql/mutations/auth'
+import { REGISTER } from '../../gql/mutations/auth';
 
 export const RegisterForm = ({ activateAuth }) => {
 
-	const [disabled, setDisabled] = useState(false)
-	const [error, setError] = useState(null)
+	const [disabled, setDisabled] = useState(false);
+	const [error, setError] = useState(null);
 
 	const [ registerUser ] = useMutation(REGISTER);
 
-	const email = useInputValue('')
-	const password = useInputValue('')
-	const repeatPassword = useInputValue('')
+	const email = useInputValue('');
+	const password = useInputValue('');
+	const repeatPassword = useInputValue('');
 
 	const handleSubmit = (event) => {
-		event.preventDefault()
-		setDisabled(true)
-		setError(null)
+		event.preventDefault();
+		setDisabled(true);
+		setError(null);
 
-		const variables = { email: email.value, password: password.value }
+		const variables = { email: email.value, password: password.value };
 
 		registerUser({ variables }).then(({ data }) => {
-			const { token } = data.registerUser
-			activateAuth(token)
+			const { token } = data.registerUser;
+			activateAuth(token);
 		}).catch(e => {
-			setError(e.message)
-			setDisabled(false)
-		})
-	}
+			setError(e.message);
+			setDisabled(false);
+		});
+	};
 
 	return (
 		<Fragment>
@@ -96,9 +96,9 @@ export const RegisterForm = ({ activateAuth }) => {
 				</div>
 			</div>
 		</Fragment>
-	)
-}
+	);
+};
 
 RegisterForm.propTypes = {
 	activateAuth: PropTypes.func.isRequired,
-}
+};

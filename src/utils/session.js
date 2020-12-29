@@ -43,10 +43,10 @@ function storeUserDataOnSessionStorage(data) {
 function recoverUserDataFromSessionStorage() {
 	const reviver = (key, value) => {
 		if (value === 'true') {
-			return true
+			return true;
 		}
 		if (value === 'false') {
-			return false
+			return false;
 		}
 		return value;
 	};

@@ -1,14 +1,14 @@
-import React, { Fragment, useContext } from 'react'
-import { Link } from '@reach/router'
+import React, { Fragment, useContext } from 'react';
+import { Link } from '@reach/router';
 
-import { AuthContext } from '../AuthContext'
+import { AuthContext } from '../AuthContext';
 
-import { PageTitle } from '../components/PageTitle'
-import { LoginForm } from '../components/LoginForm'
+import { PageTitle } from '../components/PageTitle';
+import { LoginForm } from '../components/LoginForm';
 
 export const Login = () => {
 
-	const { activateAuth } = useContext(AuthContext)
+	const { activateAuth } = useContext(AuthContext);
 
 	return (
 		<Fragment>
@@ -18,5 +18,5 @@ export const Login = () => {
 				Don't have an account? <span role="img" aria-label="Winking Face">😉</span>
 			</Link>
 		</Fragment>
-	)
-}
+	);
+};

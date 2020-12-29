@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './styles.css'
+import './styles.css';
 
 
 export const Spinner = () => {
@@ -11,4 +11,4 @@ export const Spinner = () => {
 			<div className="bounce3"></div>
 		</div>
 	);
-}
+};

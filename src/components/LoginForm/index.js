@@ -1,41 +1,41 @@
-import React, { useState, Fragment } from 'react'
-import { useMutation } from '@apollo/client'
-import PropTypes from 'prop-types'
+import React, { useState, Fragment } from 'react';
+import { useMutation } from '@apollo/client';
+import PropTypes from 'prop-types';
 
-import { ErrorAlert } from '../ErrorAlert'
-import { SubmitButton } from '../SubmitButton'
-import { SubmitButtonHelper } from '../SubmitButtonHelper'
+import { ErrorAlert } from '../ErrorAlert';
+import { SubmitButton } from '../SubmitButton';
+import { SubmitButtonHelper } from '../SubmitButtonHelper';
 
-import { useInputValue } from '../../hooks/useInputValue'
-import { validateLoginForm } from '../../utils/validations'
+import { useInputValue } from '../../hooks/useInputValue';
+import { validateLoginForm } from '../../utils/validations';
 
-import { LOGIN } from '../../gql/mutations/auth'
+import { LOGIN } from '../../gql/mutations/auth';
 
 export const LoginForm = ({ activateAuth }) => {
 
-	const [disabled, setDisabled] = useState(false)
-	const [error, setError] = useState(null)
+	const [disabled, setDisabled] = useState(false);
+	const [error, setError] = useState(null);
 
 	const [ authUser ] = useMutation(LOGIN);
 
-	const email = useInputValue('')
-	const password = useInputValue('')
+	const email = useInputValue('');
+	const password = useInputValue('');
 
 	const handleSubmit = (event) => {
-		event.preventDefault()
-		setDisabled(true)
-		setError(null)
+		event.preventDefault();
+		setDisabled(true);
+		setError(null);
 
-		const variables = { email: email.value, password: password.value }
+		const variables = { email: email.value, password: password.value };
 
 		authUser({ variables }).then(({ data }) => {
-			const { token } = data.authUser
-			activateAuth(token)
+			const { token } = data.authUser;
+			activateAuth(token);
 		}).catch(e => {
-			setError(e.message)
-			setDisabled(false)
-		})
-	}
+			setError(e.message);
+			setDisabled(false);
+		});
+	};
 
 	return (
 		<Fragment>
@@ -57,9 +57,9 @@ export const LoginForm = ({ activateAuth }) => {
 				error && <ErrorAlert errorMessage={error} />
 			}
 		</Fragment>
-	)
-}
+	);
+};
 
 LoginForm.propTypes = {
 	activateAuth: PropTypes.func.isRequired,
-}
+};

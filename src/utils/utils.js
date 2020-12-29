@@ -4,7 +4,7 @@
  * @return {String}
  */
 function parseUnixTimestamp(timestamp) {
-	timestamp = parseInt(timestamp)
+	timestamp = parseInt(timestamp);
 	const d = new Date(timestamp);
 
 	let month = `${(d.getMonth() + 1)}`;

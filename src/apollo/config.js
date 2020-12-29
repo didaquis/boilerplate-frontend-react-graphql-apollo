@@ -1,6 +1,6 @@
-import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client'
-import { onError } from '@apollo/client/link/error'
-import { recoverSession, deleteSession } from '../utils/session'
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
+import { recoverSession, deleteSession } from '../utils/session';
 
 /* Configuration imported from '.env' file */
 const backendProtocol 	= process.env.REACT_APP_PROTOCOL;
@@ -12,11 +12,11 @@ const backendAddress = `${backendProtocol}://${backendHost}:${backendPort}${back
 
 const httpLink = new HttpLink({
 	uri: backendAddress
-})
+});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
 	const token = recoverSession('token');
-	const authorization = token ? `Bearer ${token}` : ''
+	const authorization = token ? `Bearer ${token}` : '';
 	operation.setContext(({ headers = {} }) => ({
 		headers: {
 			...headers,
@@ -32,19 +32,19 @@ const errorLink = onError(({ operation, graphQLErrors, networkError, response })
 		graphQLErrors.forEach(err => {
 			// err.message, err.locations, err.path, err.extensions
 			if (err.extensions.code === 'UNAUTHENTICATED' || err.extensions.code === 'FORBIDDEN') {
-				deleteSession()
-				window.location.href = '/'
+				deleteSession();
+				window.location.href = '/';
 			}
-		})
+		});
 	}
 
 	if (networkError && networkError.response === 'invalid_token') {
-		deleteSession()
-		window.location.href = '/'
+		deleteSession();
+		window.location.href = '/';
 	}
 });
 
-const link = ApolloLink.from([authMiddleware, errorLink, httpLink])
+const link = ApolloLink.from([authMiddleware, errorLink, httpLink]);
 
 
 const apolloClient = new ApolloClient({

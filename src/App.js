@@ -1,25 +1,25 @@
-import React, { StrictMode, useContext, Suspense } from 'react'
+import React, { StrictMode, useContext, Suspense } from 'react';
 
-import { Router, Redirect } from '@reach/router'
+import { Router, Redirect } from '@reach/router';
 
-import { AuthContext } from './AuthContext'
+import { AuthContext } from './AuthContext';
 
-import { Login } from './pages/Login'
-import { Registration } from './pages/Registration'
-import { Logout } from './pages/Logout'
-import { Page404 } from './pages/Page404'
+import { Login } from './pages/Login';
+import { Registration } from './pages/Registration';
+import { Logout } from './pages/Logout';
+import { Page404 } from './pages/Page404';
 
-import { NavBar } from './components/NavBar'
-import { Footer } from './components/Footer'
-import { Spinner } from './components/Spinner'
+import { NavBar } from './components/NavBar';
+import { Footer } from './components/Footer';
+import { Spinner } from './components/Spinner';
 
-const Home = React.lazy(() => import('./pages/Home'))
-const UserAdministration = React.lazy(() => import('./pages/UserAdministration'))
+const Home = React.lazy(() => import('./pages/Home'));
+const UserAdministration = React.lazy(() => import('./pages/UserAdministration'));
 
 
 export const App = () => {
-	const { isAuth } = useContext(AuthContext)
-	const { userData } = useContext(AuthContext)
+	const { isAuth } = useContext(AuthContext);
+	const { userData } = useContext(AuthContext);
 
 	return (
 		<StrictMode>
@@ -61,5 +61,5 @@ export const App = () => {
 				</div>
 			</div>
 		</StrictMode>
-	)
-}
+	);
+};

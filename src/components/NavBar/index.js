@@ -1,16 +1,16 @@
-import React, { useContext } from 'react'
-import { Link } from '@reach/router'
+import React, { useContext } from 'react';
+import { Link } from '@reach/router';
 
-import { MdHome, MdPeopleOutline } from 'react-icons/md'
-import { IoMdLogIn, IoMdLogOut } from "react-icons/io";
+import { MdHome, MdPeopleOutline } from 'react-icons/md';
+import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 
- import { AuthContext } from '../../AuthContext'
+ import { AuthContext } from '../../AuthContext';
 
-const SIZE = '36px'
+const SIZE = '36px';
 
 export const NavBar = () => {
-	const { isAuth } = useContext(AuthContext)
-	const { userData } = useContext(AuthContext)
+	const { isAuth } = useContext(AuthContext);
+	const { userData } = useContext(AuthContext);
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark justify-content-between d-flex mb-5 border-bottom border-info">
@@ -27,5 +27,5 @@ export const NavBar = () => {
 				{ isAuth && <IoMdLogOut size={SIZE}/> }
 			</Link>
 		</nav>
-	)
-}
+	);
+};

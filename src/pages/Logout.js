@@ -1,11 +1,11 @@
-import React, { useContext, Fragment } from 'react'
-import { AuthContext } from '../AuthContext'
+import React, { useContext, Fragment } from 'react';
+import { AuthContext } from '../AuthContext';
 
-import { SubmitButton } from '../components/SubmitButton'
-import { PageTitle } from '../components/PageTitle'
+import { SubmitButton } from '../components/SubmitButton';
+import { PageTitle } from '../components/PageTitle';
 
 export const Logout = () => {
-	const { removeAuth } = useContext(AuthContext)
+	const { removeAuth } = useContext(AuthContext);
 	return (
 		<Fragment>
 			<PageTitle text='Log out' />
@@ -13,5 +13,5 @@ export const Logout = () => {
 				<SubmitButton onClick={removeAuth}>Close session</SubmitButton>
 			</div>
 		</Fragment>
-	)
-}
+	);
+};
