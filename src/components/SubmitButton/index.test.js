@@ -6,19 +6,21 @@ import { SubmitButton } from './';
 
 describe('SubmitButton', () => {
 	it('renders correctly', () => {
-		const _onClick = () => {};
-		const text = 'button-text';
-		const { getByText } = render(<SubmitButton disabled={false} onClick={_onClick}>{text}</SubmitButton>);
+		const handleClick = () => {};
+		const { getByRole } = render(<SubmitButton disabled={false} onClick={handleClick}>Submit</SubmitButton>);
 
-		expect(getByText(text)).toBeInTheDocument();
+		expect(getByRole('button', { name: /^Submit$/i } )).toBeInTheDocument();
 	});
 
-	it('renders a disabled button', () => {
-		const _onClick = () => {};
-		const text = 'button-text';
-		const { getByText } = render(<SubmitButton disabled={true} onClick={_onClick}>{text}</SubmitButton>);
+	it('renders a button disabled or not depending of the props', () => {
+		const handleClick = () => {};
+		const { getByRole, rerender } = render(<SubmitButton disabled={true} onClick={handleClick}>Submit</SubmitButton>);
 
-		expect(getByText(/button-text/i).closest('button')).toHaveAttribute('disabled');
+		expect(getByRole('button', { name: /^Submit$/i } )).toBeDisabled();
+
+		rerender(<SubmitButton disabled={false} onClick={handleClick}>Submit</SubmitButton>);
+
+		expect(getByRole('button', { name: /^Submit$/i } )).not.toBeDisabled();
 	});
 
 	it('captures clicks', () => {
@@ -28,7 +30,7 @@ describe('SubmitButton', () => {
 			<SubmitButton onClick={handleClick}>Submit</SubmitButton>
 		);
 
-		const node = getByRole('button', { name: /^Submit$/i} );
+		const node = getByRole('button', { name: /^Submit$/i } );
 
 		expect(handleClick).not.toHaveBeenCalled();
 		fireEvent.click(node);
