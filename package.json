@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "1.0.71",
+  "version": "1.0.72",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-icons": "3.11.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "4.0.1"
   },
   "scripts": {
     "lint": "eslint --ext .js ./src",
@@ -58,6 +58,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "5.11.8",
+    "@testing-library/react": "11.2.2",
     "husky": "4.3.6"
   },
   "husky": {

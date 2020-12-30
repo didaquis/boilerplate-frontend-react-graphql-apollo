@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { parseUnixTimestamp } from '../../utils/utils';
+import { EmojiGreenCheck } from '../EmojiGreenCheck';
+import { EmojiRedCross } from '../EmojiRedCross';
 
 export const ListOfUsers = ( { users, startPolling, stopPolling } ) => {
 
@@ -33,8 +35,8 @@ export const ListOfUsers = ( { users, startPolling, stopPolling } ) => {
 							return (
 								<tr key={user.uuid}>
 									<td>{user.email}</td>
-									<td>{(user.isAdmin) ? '✅': '❌'}</td>
-									<td>{(user.isActive) ? '✅': '❌'}</td>
+									<td>{(user.isAdmin) ? <EmojiGreenCheck /> : <EmojiRedCross /> }</td>
+									<td>{(user.isActive) ? <EmojiGreenCheck /> : <EmojiRedCross /> }</td>
 									<td>{parseUnixTimestamp(user.registrationDate)}</td>
 									<td>{parseUnixTimestamp(user.lastLogin)}</td>
 								</tr>
