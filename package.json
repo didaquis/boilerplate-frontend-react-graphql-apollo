@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "1.0.75",
+  "version": "1.0.76",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
@@ -59,8 +59,8 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.11.8",
-    "@testing-library/react": "11.2.2",
-    "husky": "4.3.6"
+    "@testing-library/react": "11.2.3",
+    "husky": "4.3.7"
   },
   "husky": {
     "hooks": {
