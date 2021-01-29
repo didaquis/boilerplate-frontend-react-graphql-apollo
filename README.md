@@ -21,7 +21,7 @@ Technologies used are: React + GraphQL + Apollo + Bootstrap 4
 
 ### 📝 Frontend Requirements
 * Backend must be running. I recommend use my [backend boilerplate](https://github.com/didaquis/boilerplate-backend-node-graphql-mongodb)
-* Node.js 10 or higher (just for development)
+* Node.js 14 or higher
 
 ### 📚 How to run the application?
 * Use the command: `npm install`.
