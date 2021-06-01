@@ -1,5 +1,5 @@
 /**
- * Convert an Unix timestamp in to human readable datetime
+ * Convert an Unix timestamp in to human readable datetime (local time zone)
  * @param  {String|Number} timestamp
  * @return {String}
  */
