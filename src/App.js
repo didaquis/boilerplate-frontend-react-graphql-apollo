@@ -1,4 +1,4 @@
-import React, { StrictMode, useContext, Suspense } from 'react';
+import { StrictMode, useContext, Suspense, lazy } from 'react';
 
 import { Router, Redirect } from '@reach/router';
 
@@ -13,8 +13,8 @@ import { NavBar } from './components/NavBar';
 import { Footer } from './components/Footer';
 import { Spinner } from './components/Spinner';
 
-const Home = React.lazy(() => import('./pages/Home'));
-const UserAdministration = React.lazy(() => import('./pages/UserAdministration'));
+const Home = lazy(() => import('./pages/Home'));
+const UserAdministration = lazy(() => import('./pages/UserAdministration'));
 
 
 export const App = () => {

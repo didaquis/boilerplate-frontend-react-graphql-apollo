@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import { Fragment, useContext } from 'react';
 import { Link } from '@reach/router';
 
 import { AuthContext } from '../AuthContext';

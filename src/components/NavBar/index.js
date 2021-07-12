@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from '@reach/router';
 
 import { MdHome, MdPeopleOutline } from 'react-icons/md';

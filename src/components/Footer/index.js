@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Footer = () => {
 	return (
 		<footer className="footer mt-auto py-3 fixed-bottom bg-dark border-top border-info">
