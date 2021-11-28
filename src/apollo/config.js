@@ -35,6 +35,10 @@ const errorLink = onError(({ operation, graphQLErrors, networkError, response })
 				deleteSession();
 				window.location.href = '/';
 			}
+
+			if (err.extensions.code === 'INTERNAL_SERVER_ERROR') {
+				err.message = 'An error has occurred';
+			}
 		});
 	}
 
