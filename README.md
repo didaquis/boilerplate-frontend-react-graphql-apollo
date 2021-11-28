@@ -9,7 +9,7 @@ If you prefer it, you can use one of these boilerplates without using the other!
 
 
 ### 🎁 What is included on the frontend boilerplate?
-Technologies used are: React + GraphQL + Apollo + Bootstrap 4
+Technologies used are: React + GraphQL + Apollo Client + Bootstrap 4
 
 **✨ These are some of the highlights:** 
 
@@ -57,5 +57,4 @@ It would be great to receive your help. ♥️
 You can collaborate in multiple ways, of course. Let me give you some ideas:
 * Help me with this documentation. If you think something it's not clear, open an issue and talk to me!
 * Share this project, mark it as a favorite (⭐️) or make some suggestions
-* Help me to improve the implementation of React or Apollo Client. I'm not an expert!
-
+* Help me to improve the implementation of React. I'm not an expert!
