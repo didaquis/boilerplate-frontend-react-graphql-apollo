@@ -69,6 +69,11 @@ describe('LoginForm', () => {
 		fireEvent.change(passwordInput, { target: { value: 'ABCabc*1234*4321' } });
 		fireEvent.click(submitButton);
 
+		const submitButtonLoadingState = screen.getByRole('button', { name: 'Loading' });
+
+		expect(submitButtonLoadingState).toBeInTheDocument();
+		expect(submitButtonLoadingState).toBeDisabled();
+
 		await waitFor(() => expect(activateAuth).toHaveBeenCalled());
 		expect(activateAuth).toHaveBeenCalledWith('f3b2c1a0d2');
 	});
@@ -105,6 +110,9 @@ describe('LoginForm', () => {
 		fireEvent.click(submitButton);
 
 		await waitFor(() => expect(activateAuth).not.toHaveBeenCalled());
+
+		expect(submitButton).toBeInTheDocument();
+		expect(submitButton).not.toBeDisabled();
 
 		expect(screen.getByRole('alert')).toBeInTheDocument();
 		expect(screen.getByText('Invalid credentials'));

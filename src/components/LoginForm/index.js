@@ -14,6 +14,7 @@ import { LOGIN } from '../../gql/mutations/auth';
 export const LoginForm = ({ activateAuth }) => {
 
 	const [disabled, setDisabled] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	const [ authUser ] = useMutation(LOGIN);
@@ -24,6 +25,7 @@ export const LoginForm = ({ activateAuth }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setDisabled(true);
+		setIsLoading(true);
 		setError(null);
 
 		const variables = { email: email.value, password: password.value };
@@ -34,6 +36,7 @@ export const LoginForm = ({ activateAuth }) => {
 		}).catch(e => {
 			setError(e.message);
 			setDisabled(false);
+			setIsLoading(false);
 		});
 	};
 
@@ -49,7 +52,18 @@ export const LoginForm = ({ activateAuth }) => {
 					<input disabled={disabled} className="form-control" id="inputPasswordLoginForm" placeholder='password' type='password' {...password} required />
 				</div>
 				<div className="mt-2 ml-1">
-					<SubmitButton disabled={disabled || !validateLoginForm(email.value, password.value)}>Log in</SubmitButton>
+					<SubmitButton disabled={disabled || !validateLoginForm(email.value, password.value)}>
+						{
+							(!isLoading)
+								?
+									'Log in'
+								:
+									<Fragment>
+										<span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
+										<span>Loading</span>
+									</Fragment>
+						}
+					</SubmitButton>
 					<SubmitButtonHelper mustShowHelper={!validateLoginForm(email.value, password.value)}></SubmitButtonHelper>
 				</div>
 			</form>

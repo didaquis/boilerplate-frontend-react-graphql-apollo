@@ -14,6 +14,7 @@ import { REGISTER } from '../../gql/mutations/auth';
 export const RegisterForm = ({ activateAuth }) => {
 
 	const [disabled, setDisabled] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	const [ registerUser ] = useMutation(REGISTER);
@@ -25,6 +26,7 @@ export const RegisterForm = ({ activateAuth }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setDisabled(true);
+		setIsLoading(true);
 		setError(null);
 
 		const variables = { email: email.value, password: password.value };
@@ -35,6 +37,7 @@ export const RegisterForm = ({ activateAuth }) => {
 		}).catch(e => {
 			setError(e.message);
 			setDisabled(false);
+			setIsLoading(false);
 		});
 	};
 
@@ -85,7 +88,18 @@ export const RegisterForm = ({ activateAuth }) => {
 						<small id="repeatPasswordHelp" className="form-text text-muted">At least 8 characters. It must contain numbers, lowercase letters and uppercase letters. The spaces are not allowed</small>
 					</div>
 					<div className="mt-2 ml-1">
-						<SubmitButton disabled={disabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>Create account</SubmitButton>
+						<SubmitButton disabled={disabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>
+							{
+								(!isLoading)
+									?
+										'Create account'
+									:
+										<Fragment>
+											<span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
+											<span>Loading</span>
+										</Fragment>
+							}
+						</SubmitButton>
 						<SubmitButtonHelper mustShowHelper={!validateRegisterForm(email.value, password.value, repeatPassword.value)}></SubmitButtonHelper>
 					</div>
 				</form>
