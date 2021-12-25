@@ -13,7 +13,7 @@ import { REGISTER } from '../../gql/mutations/auth';
 
 export const RegisterForm = ({ activateAuth }) => {
 
-	const [disabled, setDisabled] = useState(false);
+	const [isDisabled, setIsDisabled] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
@@ -25,7 +25,7 @@ export const RegisterForm = ({ activateAuth }) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		setDisabled(true);
+		setIsDisabled(true);
 		setIsLoading(true);
 		setError(null);
 
@@ -36,7 +36,7 @@ export const RegisterForm = ({ activateAuth }) => {
 			activateAuth(token);
 		}).catch(e => {
 			setError(e.message);
-			setDisabled(false);
+			setIsDisabled(false);
 			setIsLoading(false);
 		});
 	};
@@ -44,11 +44,11 @@ export const RegisterForm = ({ activateAuth }) => {
 	return (
 		<Fragment>
 			<div className="row justify-content-center mt-4">
-				<form className="col-md-8" disabled={disabled} onSubmit={handleSubmit}>
+				<form className="col-md-8" disabled={isDisabled} onSubmit={handleSubmit}>
 					<div className="form-group">
 						<label htmlFor="inputEmailRegisterForm" className="text-light">Email <span className="text-danger">*</span></label>
 						<input
-							disabled={disabled}
+							disabled={isDisabled}
 							inputMode="email"
 							className="form-control"
 							id="inputEmailRegisterForm"
@@ -62,7 +62,7 @@ export const RegisterForm = ({ activateAuth }) => {
 					<div className="form-group">
 						<label htmlFor="inputPasswordRegisterForm" className="text-light">Password <span className="text-danger">*</span></label>
 						<input
-							disabled={disabled}
+							disabled={isDisabled}
 							className="form-control"
 							id="inputPasswordRegisterForm"
 							placeholder='password'
@@ -76,7 +76,7 @@ export const RegisterForm = ({ activateAuth }) => {
 					<div className="form-group">
 						<label htmlFor="inputRepeatPasswordRegisterForm" className="text-light">Repeat password <span className="text-danger">*</span></label>
 						<input
-							disabled={disabled}
+							disabled={isDisabled}
 							className="form-control"
 							id="inputRepeatPasswordRegisterForm"
 							placeholder='repeat password'
@@ -88,7 +88,7 @@ export const RegisterForm = ({ activateAuth }) => {
 						<small id="repeatPasswordHelp" className="form-text text-muted">At least 8 characters. It must contain numbers, lowercase letters and uppercase letters. The spaces are not allowed</small>
 					</div>
 					<div className="mt-2 ml-1">
-						<SubmitButton disabled={disabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>
+						<SubmitButton disabled={isDisabled || !validateRegisterForm(email.value, password.value, repeatPassword.value)}>
 							{
 								(!isLoading)
 									?
