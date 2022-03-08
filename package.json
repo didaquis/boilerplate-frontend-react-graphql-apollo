@@ -46,7 +46,8 @@
       "quotes": [
         "warn",
         "single"
-      ]
+      ],
+      "no-return-await": "error"
     }
   },
   "browserslist": {
