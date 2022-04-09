@@ -12,6 +12,7 @@ import { Page404 } from './pages/Page404';
 import { NavBar } from './components/NavBar';
 import { Footer } from './components/Footer';
 import { Spinner } from './components/Spinner';
+import { OnRouteChange } from './components/OnRouteChange';
 
 const Home = lazy(() => import('./pages/Home'));
 const UserAdministration = lazy(() => import('./pages/UserAdministration'));
@@ -54,6 +55,7 @@ export const App = () => {
 									<UserAdministration path='/user-administration' />
 									<Logout path='/logout' />
 								</Router>
+								<OnRouteChange />{/* Use this always after the Reach Router! */}
 							</main>
 						<div className="row pb-5"></div>
 						<Footer />
