@@ -32,7 +32,7 @@ Technologies used are: React + GraphQL + Apollo Client + Bootstrap 4
 
 ### 🚀 How to deploy?
 * Use the command: `npm install --production`.
-* Make sure you have the correct enviroment vars configuration on the `.env` file.
+* Make sure you have the correct environment vars configuration on the `.env` file.
 * Then use `npm run build` to create a production bundle. This bundle will be created in the `./build` folder.
 * The content of `./build` folder is ready to be deployed to production.
 

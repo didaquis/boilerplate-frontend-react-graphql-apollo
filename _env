@@ -1,4 +1,4 @@
-# HINT: Enviroments vars in react must be named: REACT_APP_FOO
+# HINT: Environments vars in react must be named: REACT_APP_FOO
 # HINT: This file must be in root path of project
 
 # VARS FOR BACKEND. Destination: localhost
