@@ -1,9 +1,9 @@
 /**
  * Convert an Unix timestamp in to human readable datetime (local time zone)
- * @param  {String|Number} timestamp
- * @return {String}
+ * @param  {string|number} timestamp
+ * @return {string}
  */
-function parseUnixTimestamp(timestamp) {
+const parseUnixTimestamp = (timestamp) => {
 	timestamp = parseInt(timestamp);
 	const d = new Date(timestamp);
 
@@ -22,7 +22,7 @@ function parseUnixTimestamp(timestamp) {
 	const time = [hour, minute].join(':');
 
 	return `${date} ${time}`;
-}
+};
 
 module.exports = {
 	parseUnixTimestamp

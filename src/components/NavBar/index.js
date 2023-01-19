@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 import { MdHome, MdPeopleOutline } from 'react-icons/md';
 import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';

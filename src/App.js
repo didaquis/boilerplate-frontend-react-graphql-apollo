@@ -1,8 +1,6 @@
-import { StrictMode, useContext, Suspense, lazy } from 'react';
+import { StrictMode, Suspense, lazy } from 'react';
 
-import { Router, Redirect } from '@reach/router';
-
-import { AuthContext } from './AuthContext';
+import { Routes, Route } from 'react-router-dom';
 
 import { Login } from './pages/Login';
 import { Registration } from './pages/Registration';
@@ -12,54 +10,67 @@ import { Page404 } from './pages/Page404';
 import { NavBar } from './components/NavBar';
 import { Footer } from './components/Footer';
 import { Spinner } from './components/Spinner';
-import { OnRouteChange } from './components/OnRouteChange';
+import { RequireAuth } from './components/RequireAuth';
+import { RequireUnauthenticated } from './components/RequireUnauthenticated';
+import { RequireAdminRole } from './components/RequireAdminRole';
 
 const Home = lazy(() => import('./pages/Home'));
 const UserAdministration = lazy(() => import('./pages/UserAdministration'));
 
 
 export const App = () => {
-	const { isAuth } = useContext(AuthContext);
-	const { userData } = useContext(AuthContext);
-
 	return (
 		<StrictMode>
 			<div className="container-fluid bg-dark">
 				<div className="container">
-					<Suspense fallback={<Spinner />}>
-						<NavBar />
-							<main className="pb-4">
-								<Router>
-									<Page404 default />
-									<Home path='/' />
+					<NavBar />
+						<main className="pb-4">
+							<Suspense fallback={<Spinner />}>
+								<Routes>
+									<Route path='/' element={<Home />} />
+									<Route path="*" element={<Page404 />} />
+
 
 									{
-										// If is not authenticated...
+										// Routes for non-authenticated users
 									}
-									{ !isAuth && <Login path='/login' /> }
-									{ !isAuth && <Registration path='/register' /> }
-									{ !isAuth && <Redirect from='/user-administration' to='/login' noThrow /> }
-									{ !isAuth && <Redirect from='/logout' to='/login' noThrow /> }
+									<Route path='/login' element={
+										<RequireUnauthenticated>
+											<Login />
+										</RequireUnauthenticated>
+									} />
+									<Route path='/register' element={
+										<RequireUnauthenticated>
+											<Registration />
+										</RequireUnauthenticated>
+									} />
+
 
 									{
-										// If it's authenticated user...
+										// Routes for authenticated users
 									}
-									{ isAuth && <Redirect from='/login' to='/' noThrow /> }
-									{ isAuth && <Redirect from='/register' to='/' noThrow /> }
+									<Route path='/logout' element={
+										<RequireAuth>
+											<Logout />
+										</RequireAuth>
+									} />
+
 
 									{
-										// If it's authenticated user but don't have administrator role...
+										// Routes for authenticated administrator users
 									}
-									{ isAuth && !userData.isAdmin && <Redirect from='/user-administration' to='/' noThrow /> }
-
-									<UserAdministration path='/user-administration' />
-									<Logout path='/logout' />
-								</Router>
-								<OnRouteChange />{/* Use this always after the Reach Router! */}
-							</main>
-						<div className="row pb-5"></div>
-						<Footer />
-					</Suspense>
+									<Route path='/user-administration' element={
+										<RequireAuth>
+											<RequireAdminRole>
+												<UserAdministration />
+											</RequireAdminRole>
+										</RequireAuth>
+									} />
+								</Routes>
+							</Suspense>
+						</main>
+					<div className="row pb-5"></div>
+					<Footer />
 				</div>
 			</div>
 		</StrictMode>

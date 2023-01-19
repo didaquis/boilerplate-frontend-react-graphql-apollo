@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
-/* Import apollo client */
+import { BrowserRouter } from 'react-router-dom';
+
 import apolloClient from './apollo/config';
 import { ApolloProvider } from '@apollo/client';
 
@@ -12,7 +13,9 @@ import { App } from './App';
 ReactDOM.render(
 	<AuthContext.Provider>
 		<ApolloProvider client={apolloClient}>
-			<App />
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
 		</ApolloProvider>
 	</AuthContext.Provider>, document.getElementById('root'));
 
