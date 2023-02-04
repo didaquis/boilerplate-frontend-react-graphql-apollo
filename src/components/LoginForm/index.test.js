@@ -111,8 +111,10 @@ describe('LoginForm', () => {
 
 		await waitFor(() => expect(activateAuth).not.toHaveBeenCalled());
 
-		expect(submitButton).toBeInTheDocument();
-		expect(submitButton).not.toBeDisabled();
+		const submitButtonAfterCTA = await screen.findByRole('button', { name: 'Log in' });
+
+ 		expect(submitButtonAfterCTA).toBeInTheDocument();
+ 		expect(submitButtonAfterCTA).not.toBeDisabled();
 
 		expect(screen.getByRole('alert')).toBeInTheDocument();
 		expect(screen.getByText('Invalid credentials'));

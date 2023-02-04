@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import apolloClient from './apollo/config';
@@ -10,14 +10,17 @@ import AuthContext from './AuthContext';
 
 import { App } from './App';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
 	<AuthContext.Provider>
 		<ApolloProvider client={apolloClient}>
 			<BrowserRouter>
 				<App />
 			</BrowserRouter>
 		</ApolloProvider>
-	</AuthContext.Provider>, document.getElementById('root'));
+	</AuthContext.Provider>);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
