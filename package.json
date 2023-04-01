@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
@@ -11,9 +11,9 @@
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "4.7.1",
-    "react-router": "6.8.0",
-    "react-router-dom": "6.8.0",
+    "react-icons": "4.8.0",
+    "react-router": "6.10.0",
+    "react-router-dom": "6.10.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -64,7 +64,7 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "7.0.0",
+    "@craco/craco": "7.1.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "buffer": "6.0.3",
