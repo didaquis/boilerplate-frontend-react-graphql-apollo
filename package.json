@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-frontend-react-graphql-apollo",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "boilerplate-frontend-react-graphql-apollo",
   "private": true,
   "dependencies": {
@@ -20,7 +20,7 @@
     "lint": "eslint --ext .js ./src",
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "craco test --colors",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
